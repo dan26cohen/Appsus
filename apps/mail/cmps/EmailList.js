@@ -18,7 +18,7 @@ export default {
         </ul>
         <section>
                 <EmailDetails :email="selectedEmail" v-if="detailsIsShown" />
-                <button @click="toggle" v-if="detailsIsShown" >back to list</button>
+                <button @click="toggleExit" v-if="detailsIsShown" >back to list</button>
 
             </section>
         </section>
@@ -38,11 +38,17 @@ export default {
                 .then(email => {
                     email.isRead = true
                     EmailService.save(email)
+            
                 }
                 )
 
             this.listIsShown = !this.listIsShown
             this.detailsIsShown = !this.detailsIsShown
+        },
+        toggleExit(){
+            this.listIsShown = !this.listIsShown
+            this.detailsIsShown = !this.detailsIsShown
+            location.reload();
         }
     },
     computed: {
