@@ -29,7 +29,7 @@
 }
 
 .note-li:hover {
-    background-color: rgb(194, 194, 194);
+    background-color: rgb(244, 244, 244);
 }
 
 .note-btns i:hover {
@@ -38,11 +38,13 @@
 }
 
 .note-btns {
-    color: white;
+    opacity: 0;
 }
 
 .note-btns.show {
     display: flex;
+    opacity: 1;
     justify-content: flex-end;
     gap: 5px;
+    color: black;
 }
