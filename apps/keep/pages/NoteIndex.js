@@ -6,20 +6,40 @@ import NoteList from '../cmps/NoteList.js'
 export default {
     template: `
     <section class="notes-index">
-        <NoteList :notes="notes" />
+        <button class="add-btn" @click="addNote">Add Note</button>
+        <NoteList :notes="notes" @remove="removeNote"/>
     </section>`,
 
     data() {
         return {
-            notes: null,
+            notes: [],
         }
     },
     methods: {
+        addNote() {
+            noteService.addNewNote().then(note => {
+                console.log('note added', note)
+                this.notes.push(note)
+            })
 
+        },
+        removeNote(noteId) {
+            noteService.remove(noteId)
+                .then(() => {
+                    debugger
+                    const idx = this.notes.findIndex(note => note.id === noteId)
+                    this.notes.splice(idx, 1)
+                    console.log('note removed')
+                })
+                .catch(err => {
+                    console.log('error')
+                })
+        },
     },
     computed: {
 
     },
+
     created() {
         noteService.query()
             .then(notes => this.notes = notes)

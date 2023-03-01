@@ -9,7 +9,7 @@ export const noteService = {
     get,
     remove,
     save,
-    getEmptyNote,
+    addNewNote,
 }
 _createNotes()
 
@@ -93,10 +93,9 @@ function _getNotes() {
     return notes;
 }
 
-function getEmptyNote() {
+function _getEmptyNote() {
     const note =
     {
-        id: utilService.makeId(4),
         createdAt: utilService.getCurrDate(),
         type: 'NoteTxt',
         isPinned: true,
@@ -104,8 +103,15 @@ function getEmptyNote() {
             backgroundColor: 'gray'
         },
         info: {
-            txt: ''
+            txt: utilService.makeLorem(10),
         }
     }
     return note
+}
+
+function addNewNote() {
+    return storageService.query(NOTES_KEY).then((notes => {
+        const newNote = _getEmptyNote()
+        return storageService.post(NOTES_KEY, newNote)
+    }))
 }
