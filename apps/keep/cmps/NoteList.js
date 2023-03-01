@@ -8,8 +8,8 @@ export default {
                     <NotePreview :note="note"/>
                     <RouterLink :to="'/note/edit/'+note.id" >Edit Note</RouterLink> 
                     <div class="note-btns">
-                    <i class="fa-regular fa-trash-can" @click="remove(note.id)" class="close-note-btn"></i>
-                    <i class="fa-solid fa-paintbrush"></i>
+                    <i title="Delete" class="fa-regular fa-trash-can" @click="remove(note.id)" class="close-note-btn"></i>
+                    <i title="Paint" class="fa-solid fa-paintbrush"></i>
                     </div>
                 </li>
             </ul>

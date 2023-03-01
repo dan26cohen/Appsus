@@ -33,7 +33,7 @@
     gap: 5px;
 }
 
-.note-btns i {
+.note-btns i:hover {
     cursor: pointer;
     opacity: 0.7;
 }
