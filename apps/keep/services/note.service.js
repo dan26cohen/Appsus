@@ -62,6 +62,7 @@ function _getNotes() {
                 backgroundColor: '#00d'
             },
             info: {
+                title: 'Note 1',
                 txt: 'Fullstack Me Baby!'
             }
         },
@@ -70,8 +71,8 @@ function _getNotes() {
             type: 'NoteImg',
             isPinned: false,
             info: {
+                title: 'Note 2',
                 url: 'http://some-img/me',
-                title: 'Bobi and Me'
             },
             style: {
                 backgroundColor: '#00d'
@@ -82,7 +83,7 @@ function _getNotes() {
             type: 'NoteTodos',
             isPinned: false,
             info: {
-                title: 'Get my stuff together',
+                title: 'Note 3',
                 todos: [
                     { txt: 'Driving license', doneAt: null },
                     { txt: 'Coding power', doneAt: 187111111 }
@@ -103,7 +104,8 @@ function _getEmptyNote() {
             backgroundColor: 'gray'
         },
         info: {
-            txt: utilService.makeLorem(10),
+            title: 'Untitled',
+            txt: utilService.makeLorem(5),
         }
     }
     return note
