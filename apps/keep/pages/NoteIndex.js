@@ -7,8 +7,8 @@ export default {
     template: `
     <section class="notes-index">
         <form class="add-note-form" @submit.prevent="addNote">
-            <input placeholder="Title here..." type="text" class="add-title-input" v-model="txt">
-            <input placeholder="Text goes here..." type="text" class="add-txt-input"  v-model="title">
+            <input placeholder="Title here..." type="text" class="add-title-input" v-model="title">
+            <input placeholder="Text goes here..." type="text" class="add-txt-input"  v-model="txt">
             <button type="submit" class="add-btn">Add Note</button>
         </form>
         </div>
