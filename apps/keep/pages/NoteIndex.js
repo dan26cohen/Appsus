@@ -3,7 +3,6 @@ export default {
     props: [],
     template: `
     <section class="notes-index">
-    <RouterLink to="/notes">Add a car</RouterLink>
     </section>`,
 
     data() {
@@ -21,7 +20,6 @@ export default {
 
     },
     components: {
-
     },
     emits: [],
 }
