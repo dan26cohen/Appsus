@@ -1,7 +1,15 @@
 export const utilService = {
     makeId,
+<<<<<<< HEAD
     saveToStorage,
     loadFromStorage
+=======
+    makeLorem,
+    getRandomIntInclusive,
+    saveToStorage,
+    loadFromStorage,
+    getCurrDate,
+>>>>>>> 913e95dea300b883b7fe0e81a31d1b75f1ede31f
 }
 
 
@@ -14,6 +22,25 @@ function makeId(length = 5) {
     return txt
 }
 
+<<<<<<< HEAD
+=======
+function makeLorem(size = 100) {
+    var words = ['The sky', 'above', 'the port', 'was', 'the color of television', 'tuned', 'to', 'a dead channel', '.', 'All', 'this happened', 'more or less', '.', 'I', 'had', 'the story', 'bit by bit', 'from various people', 'and', 'as generally', 'happens', 'in such cases', 'each time', 'it', 'was', 'a different story', '.', 'It', 'was', 'a pleasure', 'to', 'burn']
+    var txt = ''
+    while (size > 0) {
+        size--
+        txt += words[Math.floor(Math.random() * words.length)] + ' '
+    }
+    return txt
+}
+
+function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min)
+    max = Math.floor(max)
+    return Math.floor(Math.random() * (max - min + 1)) + min //The maximum is inclusive and the minimum is inclusive 
+}
+
+>>>>>>> 913e95dea300b883b7fe0e81a31d1b75f1ede31f
 function saveToStorage(key, value) {
     localStorage.setItem(key, JSON.stringify(value))
 }
@@ -22,3 +49,14 @@ function loadFromStorage(key) {
     const data = localStorage.getItem(key)
     return (data) ? JSON.parse(data) : undefined
 }
+<<<<<<< HEAD
+=======
+
+function getCurrDate() {
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+    const day = String(currentDate.getDate()).padStart(2, '0');
+    return `${day}-${month}-${year}`;
+}
+>>>>>>> 913e95dea300b883b7fe0e81a31d1b75f1ede31f
