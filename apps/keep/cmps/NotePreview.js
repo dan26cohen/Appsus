@@ -21,6 +21,9 @@ export default {
     methods: {
         edit(noteId) {
             this.$emit('edit', noteId)
-        }
+        },
+        remove(noteId) {
+            this.$emit('remove', noteId)
+        },
     },
 }

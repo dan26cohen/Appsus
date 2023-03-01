@@ -5,7 +5,7 @@ export default {
      <section class="note-list-container">
             <ul class="note-list">
                 <li v-for="note in notes" :key="note.id" class="note-li">
-                    <NotePreview :note="note"/>
+                    <NotePreview :note="note"/ @remove=remove(note.id)>
                 </li>
             </ul>
     </section>`,
