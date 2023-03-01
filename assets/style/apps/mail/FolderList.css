@@ -6,6 +6,7 @@
 }
 
 .folder-list-items{
+    width: 14vw;
     display: flex;
     flex-direction: column;
     padding: 3px;

@@ -19,7 +19,9 @@ export const EmailService = {
 
 const gEmail = [
     {
+
         id: 'e101',
+        status: 'inbox',
         subject: 'new item!',
         body: 'Would you want to buy this item now? 120303',
         isRead: false,
@@ -28,8 +30,9 @@ const gEmail = [
         from: 'ebay',
         to: 'user@appsus.com'
     },
-    {
+    { 
         id: 'e102',
+        status: 'inbox',
         subject: 'hello',
         body: 'Would love tasasasasmes',
         isRead: false,
@@ -40,6 +43,7 @@ const gEmail = [
     },
     {
         id: 'e103',
+        status: 'inbox',
         subject: 'FINAL SALE UP TO 70% OFF',
         body: 'Switch to LloydsDirect for free prescription delivery or collection at no extra cost to the NHS. Plus, order, track and get reminders for your ',
         isRead: false,
@@ -50,6 +54,7 @@ const gEmail = [
     },
     {
         id: 'e104',
+        status: 'inbox',
         subject: 'כרטיסים למשחק',
         body: 'אני מצרפת לך כרטיסים למשחק כדורגל תבוא מוכן!',
         isRead: false,
@@ -60,6 +65,7 @@ const gEmail = [
     },
     {
         id: 'e105',
+        status: 'inbox',
         subject: 'You have 1 notifications you may not have seen',
         body: 'lianlevi52, see star_baby, taliaguetas and more in your feed',
         isRead: false,
@@ -71,6 +77,7 @@ const gEmail = [
     
     {
         id: 'e106',
+        status: 'inbox',
         subject: 'Discord Password Changed',
         body: 'Weve channeled our psionic energy to change your Discord account password. Gonna go get a seltzer to calm down',
         isRead: false,
@@ -82,6 +89,7 @@ const gEmail = [
     
     {
         id: 'e107',
+        status: 'inbox',
         subject: 'Five ways to improve performance with Microsoft Edge',
         body: 'Discover easy ways to level up your browser performance with unique built-in tools to keep your device running more efficiently than ever.',
         isRead: false,
@@ -93,6 +101,7 @@ const gEmail = [
     
     {
         id: 'e108',
+        status: 'trash',
         subject: '"הודעת תום תקופה - פוליסת רכב"',
         body: 'מסמך "הודעת תום תקופה - פוליסת רכב" ממתין עבורך ב"איזור האישי" באתר הפניקס',
         isRead: false,
@@ -104,6 +113,7 @@ const gEmail = [
     
     {
         id: 'e109',
+        status: 'sent',
         subject: 'New messages from ',
         body: 'Slack] New messages from Adam Bercovich - Coding Academy and Dima Polonchuk - Coding Academy in Coding Academy - JAN 23',
         isRead: false,

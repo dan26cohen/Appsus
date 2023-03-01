@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-html {}
+
 
 body {
   margin: 0;
@@ -40,8 +40,6 @@ object {
 }
 
 /* tap targets: */
-nav a,
-button {}
 
 a:hover {
   cursor: pointer;
