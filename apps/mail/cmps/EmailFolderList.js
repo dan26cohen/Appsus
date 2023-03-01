@@ -2,11 +2,11 @@ export default {
     props: ['unReadCount'],
     template: `
         <section class="folder-list-items">
-          <h1 @click="filter('inbox')">📨 inbox <span>{{unReadCount}}</span></h1>
-          <h1 @click="filter('starred')">⭐ starred</h1>
-          <h1 @click="filter('sent')">✈ sent</h1>
-          <h1>📝 draft</h1>
-          <h1 @click="filter('trash')">🗑️ trash</h1>
+          <h1 style="cursor:pointer;" @click="filter('inbox')">📨 inbox <span>{{unReadCount}}</span></h1>
+          <h1 style="cursor:pointer;"  @click="filter('starred')">⭐ starred</h1>
+          <h1 style="cursor:pointer;" @click="filter('sent')">✈ sent</h1>
+          <h1 style="cursor:pointer;" >📝 draft</h1>
+          <h1 style="cursor:pointer;"  @click="filter('trash')">🗑️ trash</h1>
         </section>
     `,
     data() {
@@ -15,8 +15,8 @@ export default {
         }
     },
     methods: {
-      filter(filter){
-        this.$emit('folderFilter',filter)
-      }
+        filter(filter) {
+            this.$emit('folderFilter', filter)
+        }
     }
 }

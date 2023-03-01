@@ -44,7 +44,7 @@ const gEmail = [
     {
         id: 'e103',
         status: 'inbox',
-        subject: 'FINAL SALE UP TO 70% OFF',
+        subject: 'final sale to 70% off',
         body: 'Switch to LloydsDirect for free prescription delivery or collection at no extra cost to the NHS. Plus, order, track and get reminders for your ',
         isRead: false,
         sentAt: 1551433230594,

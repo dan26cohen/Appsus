@@ -2,7 +2,8 @@
     display: flex;
     justify-content: center;
     gap: 20px;
-    padding: 8px;
+    align-items: center;
+    padding: 1px;
     cursor: pointer;
     border-bottom: 1px solid rgba(128, 128, 128, 0.256);
 }

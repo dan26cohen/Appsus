@@ -11,9 +11,10 @@
 }
 .email-index{
     background-color: rgb(250, 250, 250);
+    height: 85vh;
 }
 
 .list-container{
     display: flex;
-    
+
 }
