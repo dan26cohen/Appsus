@@ -4,9 +4,8 @@ export default {
         <div class="email-preview" :class="email.isRead ? 'read' : 'unRead' ">
             <h1 :class="email.isRead ? '' : 'unRead' ">{{ email.from}}</h1>
             <h1 :class="email.isRead ? '' : 'unRead' ">{{ email.subject}}</h1>
-            <h1 :class="email.isRead ? '' : 'unRead' ">{{ email.subject}}</h1>
-            <p >{{ email.body}}</p>
-            <h1 style="margin-left: auto;">{{handleDate}}</h1>
+            <p :class="email.isRead ? '' : 'unRead' " >{{ email.body}}</p>
+            <h1 :class="email.isRead ? '' : 'unRead' " style="margin-left: auto">{{handleDate}}</h1>
         </div>
     `,
 

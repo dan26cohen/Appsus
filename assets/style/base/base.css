@@ -2,9 +2,7 @@
   box-sizing: border-box;
 }
 
-html {
-  
-}
+html {}
 
 body {
   margin: 0;
@@ -18,7 +16,8 @@ h4,
 h5,
 h6 {
   margin: 0 0 1em;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  /* font-family: 'Roboto', sans-serif; */
 }
 
 p {
@@ -51,4 +50,3 @@ button {
 .debug * {
   outline: 1px solid gold
 }
-

@@ -25,6 +25,7 @@ export default {
     },
     computed: {
         filteredEmails() {
+            
             const regex = new RegExp(this.filterBy.title, 'i')
             return this.emails.filter(email=> regex.test(email.subject))
         }

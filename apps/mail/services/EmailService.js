@@ -20,7 +20,7 @@ export const EmailService = {
 const gEmail = [
     {
         id: 'e101',
-        subject: 'ebay',
+        subject: 'new item!',
         body: 'Would you want to buy this item now? 120303',
         isRead: false,
         sentAt: 1551183930594,
@@ -65,8 +65,52 @@ const gEmail = [
         isRead: false,
         sentAt: 1551433230594,
         removedAt: null,
-        from: 'amazon',
-        to: 'instagram'
+        from: 'instagram',
+        to: 'user@appsus.com'
+    },
+    
+    {
+        id: 'e106',
+        subject: 'Discord Password Changed',
+        body: 'Weve channeled our psionic energy to change your Discord account password. Gonna go get a seltzer to calm down',
+        isRead: false,
+        sentAt: 1551433230594,
+        removedAt: null,
+        from: 'noreply@discord.com',
+        to: 'user@appsus.com'
+    },
+    
+    {
+        id: 'e107',
+        subject: 'Five ways to improve performance with Microsoft Edge',
+        body: 'Discover easy ways to level up your browser performance with unique built-in tools to keep your device running more efficiently than ever.',
+        isRead: false,
+        sentAt: 1551433230594,
+        removedAt: null,
+        from: 'google',
+        to: 'user@appsus.com'
+    },
+    
+    {
+        id: 'e108',
+        subject: '"הודעת תום תקופה - פוליסת רכב"',
+        body: 'מסמך "הודעת תום תקופה - פוליסת רכב" ממתין עבורך ב"איזור האישי" באתר הפניקס',
+        isRead: false,
+        sentAt: 1551433930594,
+        removedAt: null,
+        from: 'הפניקס',
+        to: 'user@appsus.com'
+    },
+    
+    {
+        id: 'e109',
+        subject: 'New messages from ',
+        body: 'Slack] New messages from Adam Bercovich - Coding Academy and Dima Polonchuk - Coding Academy in Coding Academy - JAN 23',
+        isRead: false,
+        sentAt: 1551833230594,
+        removedAt: null,
+        from: 'instagram',
+        to: 'user@appsus.com'
     },
     
 ]
