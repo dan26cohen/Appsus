@@ -6,7 +6,7 @@ export default {
     template: `
     <Section class="email-index">
         <h1>inbox</h1>
-        <EmailFilter @filter="setFilterBy"/>
+        <EmailFilter class="search" @filter="setFilterBy"/>
         <EmailList
                 :emails="emails" 
         />
