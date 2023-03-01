@@ -1,8 +1,27 @@
 .app-header {
-  background-color: var(--clr5);
-  color: var(--secondary-clr1);
+  background-color: lightblue;
+  color: black;
   padding: 1em;
 }
+
+nav{
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 3px;
+  align-items: center;
+}
+
+a:hover{
+  color: antiquewhite;
+}
+
+.logo{
+margin-right: auto;
+}
+
+
+
 
 @media(max-width: 720px) {
   .app-header {
