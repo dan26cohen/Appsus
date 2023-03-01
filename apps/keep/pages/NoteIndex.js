@@ -1,13 +1,17 @@
 import { noteService } from '../services/note.service.js'
+import NoteFilter from '../cmps/NoteFilter.js'
+import NoteList from '../cmps/NoteList.js'
+
+
 export default {
-    props: [],
     template: `
     <section class="notes-index">
+        <NoteList :notes="notes" />
     </section>`,
 
     data() {
         return {
-
+            notes: null,
         }
     },
     methods: {
@@ -17,9 +21,12 @@ export default {
 
     },
     created() {
-
+        noteService.query()
+            .then(notes => this.notes = notes)
     },
     components: {
+        NoteFilter,
+        NoteList,
     },
     emits: [],
 }

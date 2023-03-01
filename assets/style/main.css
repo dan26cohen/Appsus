@@ -15,4 +15,5 @@
 
 /* Apps */
 @import 'apps/mail/EmailIndex.css';
+@import 'apps/mail/EmailPreview.css';
 @import 'apps/note/NoteIndex.css';
