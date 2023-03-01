@@ -1,6 +1,24 @@
+import { noteService } from '../services/note.service.js'
 export default {
-    template: `
-        <h1>hey</h1>
-    `
+    props: [],
+    template: ``,
 
+    data() {
+        return {
+
+        }
+    },
+    methods: {
+
+    },
+    computed: {
+
+    },
+    created() {
+
+    },
+    components: {
+
+    },
+    emits: [],
 }
