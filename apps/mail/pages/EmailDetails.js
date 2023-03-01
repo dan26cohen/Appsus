@@ -1,6 +1,6 @@
 import { EmailService } from "../services/EmailService.js"
 export default {
-
+    props: ['email'],
     template: `
         <section class="email-details" v-if="email">
             <h1 class="email-sender"> from : {{email.from}}</h1>
@@ -8,34 +8,30 @@ export default {
             <p>{{email.body}}</p>
             <!-- <button @click="delete">x</button> -->
             <!-- <button @click="delete">delete</button> -->
-            <RouterLink to="/email">Back to list</RouterLink>
+            <!-- <RouterLink to="/email">Back to list</RouterLink> -->
         </section>
     `,
     data() {
         return {
-            email: null,
+            
         }
     },
     methods: {
-        loadEmail() {
-            EmailService.get(this.emailId)
-                .then(email => {
-                    email.isRead = true
-                    this.email = email
-                    EmailService.save(this.email)
-                }
-                )
-        },
+        // loadEmail() {
+        //     EmailService.get(this.emailId)
+        //         .then(email => {
+        //             email.isRead = true
+        //             this.email = email
+        //             EmailService.save(this.email)
+        //         }
+        //         )
+        // },
         // delete(){
         //     EmailService.remove(this.email.id)
         // }
     },
     computed: {
-        emailId() {
-            return this.$route.params.emailId
-        },
-
-    }, created() {
-        this.loadEmail()
-    },
-}
+        // emailId() {
+        //     return this.$route.params.emailId
+        // },
+}}
