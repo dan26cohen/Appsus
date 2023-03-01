@@ -97,7 +97,7 @@ function _getNotes() {
     return notes;
 }
 
-function getEmptyNote() {
+function getEmptyNote(txt, title) {
     const note =
     {
         createdAt: utilService.getCurrDate(),
@@ -107,16 +107,16 @@ function getEmptyNote() {
             backgroundColor: 'gray'
         },
         info: {
-            title: 'Untitled',
-            txt: utilService.makeLorem(5),
+            title,
+            txt,
         }
     }
     return note
 }
 
-function addNewNote() {
+function addNewNote(txt, title) {
     return storageService.query(NOTES_KEY).then((notes => {
-        const newNote = getEmptyNote()
+        const newNote = getEmptyNote(txt, title)
         return storageService.post(NOTES_KEY, newNote)
     }))
 }

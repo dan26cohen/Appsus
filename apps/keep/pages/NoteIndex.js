@@ -6,10 +6,10 @@ import NoteList from '../cmps/NoteList.js'
 export default {
     template: `
     <section class="notes-index">
-        <form class="add-note-form">
-            <input type="text" class="add-title-input">
-            <input type="text" class="add-txt-input">
-            <button class="add-btn" @click="addNote">Add Note</button>
+        <form class="add-note-form" @submit.prevent="addNote">
+            <input placeholder="Title here..." type="text" class="add-title-input" v-model="txt">
+            <input placeholder="Text goes here..." type="text" class="add-txt-input"  v-model="title">
+            <button type="submit" class="add-btn">Add Note</button>
         </form>
         </div>
 
@@ -20,12 +20,14 @@ export default {
 
     data() {
         return {
+            txt: '',
+            title: '',
             notes: [],
         }
     },
     methods: {
         addNote() {
-            noteService.addNewNote().then(note => {
+            noteService.addNewNote(this.txt, this.title).then(note => {
                 console.log('note added', note)
                 this.notes.push(note)
             })
