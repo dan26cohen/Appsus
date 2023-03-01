@@ -2,9 +2,15 @@
     display: flex;
     gap: 20px;
     cursor: pointer;
+    border-bottom: 1px solid gray;
 }
 
-.strong{
+.unRead{
     font-weight: bold;
+    background-color: rgb(255, 255, 255);
     color: black;
+}
+
+.read{
+    background-color: #f2f6fc;
 }

@@ -6,9 +6,11 @@ export default {
         <section class="email-list">
             <ul>
                 <li v-for="email in emails" :key="email.id">
-                    <div>
+                    <div @click="hello(email)">
                     <!-- <button class="delete" @click="remove(book.id)">x</button> -->
-                    <EmailPreview :email="email"/>
+                    <RouterLink class="green" :to="'/email/'+email.id">
+                    <EmailPreview  :email="email"/>
+                    </RouterLink> 
                     </div>
                     
                 </li>
@@ -19,6 +21,9 @@ export default {
         // remove(bookId) {
         //     this.$emit('remove', bookId)
         // },
+        hello(email){
+            console.log('email');
+        }
     },
     components: {
         EmailPreview

@@ -7,7 +7,8 @@ const EMAIL_KEY = 'emailDB'
 
 export const EmailService = {
     query,
-    // get,
+    get,
+    save,
     // remove,
     // save,
     // getEmptyBook,
@@ -19,19 +20,19 @@ export const EmailService = {
 const gEmail = [
     {
         id: 'e101',
-        subject: 'Miss you!',
-        body: 'Would love to catch up sometimes',
+        subject: 'ebay',
+        body: 'Would you want to buy this item now? 120303',
         isRead: false,
         sentAt: 1551133930594,
         removedAt: null,
-        from: 'momo@momo.com',
+        from: 'ebay',
         to: 'user@appsus.com'
     },
     {
         id: 'e102',
         subject: 'hello',
         body: 'Would love tasasasasmes',
-        isRead: true,
+        isRead: false,
         sentAt: 1551133930594,
         removedAt: null,
         from: 'momo@momo.com',
@@ -39,12 +40,22 @@ const gEmail = [
     },
     {
         id: 'e103',
-        subject: 'love you',
-        body: 'Woasdasdtimes',
+        subject: 'FINAL SALE UP TO 70% OFF',
+        body: 'Switch to LloydsDirect for free prescription delivery or collection at no extra cost to the NHS. Plus, order, track and get reminders for your ',
         isRead: false,
         sentAt: 1551133930594,
         removedAt: null,
-        from: 'momo@momo.com',
+        from: 'amazon',
+        to: 'user@appsus.com'
+    },
+    {
+        id: 'e104',
+        subject: 'כרטיסים למשחק',
+        body: 'אני מצרפת לך כרטיסים למשחק כדורגל תבוא מוכן!',
+        isRead: false,
+        sentAt: 1551133930594,
+        removedAt: null,
+        from: 'אמא',
         to: 'user@appsus.com'
     },
     
@@ -60,6 +71,7 @@ function query(filterBy = {}) {
 }
 
 function get(emailId) {
+    console.log(emailId);
     return storageService.get(EMAIL_KEY, emailId)
        
 }
@@ -72,5 +84,14 @@ function _createEmails() {
     if (!emails || !emails.length) {
         emails = gEmail
         utilService.saveToStorage(EMAIL_KEY, emails)
+    }
+}
+
+function save(email) {
+    console.log(email);
+    if (email.id) {
+        return storageService.put(EMAIL_KEY, email)
+    } else {
+        return storageService.post(EMAIL_KEY, email)
     }
 }
