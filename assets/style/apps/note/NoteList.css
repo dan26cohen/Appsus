@@ -38,7 +38,7 @@
 }
 
 .note-btns {
-    display: none;
+    color: white;
 }
 
 .note-btns.show {
