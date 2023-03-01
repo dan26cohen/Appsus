@@ -23,7 +23,7 @@ export default {
         return {
             emails: null,
             selectedEmail: null,
-            filterBy: {},
+            filterBy: { status: 'inbox' },
             unReadCount: null
         }
     },
@@ -34,7 +34,6 @@ export default {
             const regex = new RegExp(this.filterBy.title, 'i')
             emails = emails.filter(email => regex.test(email.subject))
             emails = emails.filter(email => email.status === this.filterBy.status)
-            console.log(emails);
             return emails
         }
     },
@@ -43,9 +42,7 @@ export default {
             this.filterBy = filterBy
         },
         folderFilter(filter) {
-            console.log(filter);
             this.filterBy.status = filter
-            console.log(this.filterBy);
         }
 
     },
