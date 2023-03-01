@@ -3,6 +3,7 @@ import AboutUs from './views/AboutUs.js'
 import EmailIndex from './apps/mail/pages/EmailIndex.js'
 import EmailDetails from './apps/mail/pages/EmailDetails.js'
 import NoteIndex from './apps/keep/pages/NoteIndex.js'
+import NoteEdit from './apps/keep/pages/NoteEdit.js'
 
 const { createRouter, createWebHashHistory } = VueRouter
 
@@ -30,9 +31,13 @@ const routerOptions = {
 			component: AboutUs,
 		},
 		{
-            path: '/email/:emailId',
-            component: EmailDetails
-        },
+			path: '/email/:emailId',
+			component: EmailDetails
+		},
+		{
+			path: '/note/edit/:noteId?',
+			component: NoteEdit
+		},
 	],
 }
 
