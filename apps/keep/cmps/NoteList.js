@@ -5,9 +5,12 @@ export default {
      <section class="note-list-container">
             <ul class="note-list">
                 <li v-for="note in notes" :key="note.id" class="note-li">
-                    <button @click="remove(note.id)" class="close-note-btn">x</button>
                     <NotePreview :note="note"/>
                     <RouterLink :to="'/note/edit/'+note.id" >Edit Note</RouterLink> 
+                    <div class="note-btns">
+                    <i class="fa-regular fa-trash-can" @click="remove(note.id)" class="close-note-btn"></i>
+                    <i class="fa-solid fa-paintbrush"></i>
+                    </div>
                 </li>
             </ul>
     </section>`,
