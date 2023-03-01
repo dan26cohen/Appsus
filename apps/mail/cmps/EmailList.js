@@ -7,7 +7,7 @@ export default {
             <ul>
                 <li v-for="email in emails" :key="email.id">
                     <div>
-                    <button class="delete" @click="remove(book.id)">x</button>
+                    <!-- <button class="delete" @click="remove(book.id)">x</button> -->
                     <EmailPreview :email="email"/>
                     </div>
                     

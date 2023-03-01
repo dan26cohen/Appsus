@@ -1,4 +1,10 @@
 .email-preview{
     display: flex;
     gap: 20px;
+    cursor: pointer;
+}
+
+.strong{
+    font-weight: bold;
+    color: black;
 }
