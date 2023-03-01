@@ -1,11 +1,47 @@
 import { utilService } from '../../../services/util.service.js'
+import { storageService } from '../../../services/async-storage.service.js'
 
 const NOTES_KEY = 'notesDB'
 
 export const noteService = {
-
+    query,
+    query,
+    get,
+    remove,
+    save,
+    addNewNote,
 }
 _createNotes()
+
+function query(filterBy = {}) {
+    return storageService.query(NOTES_KEY).then((notes) => {
+        // if (filterBy.txt) {
+        //     const regex = new RegExp(filterBy.txt, 'i')
+        //     notes = notes.filter((notes) => regex.test(notes.title))
+        // }
+        // if (filterBy.maxPrice) {
+        //     notes = notes.filter((notes) => notes.listPrice.amount <= filterBy.maxPrice)
+        // }
+        return notes
+    })
+}
+
+function get(noteId) {
+    return storageService.get(NOTES_KEY, noteId)
+}
+
+function remove(noteId) {
+    return storageService.remove(NOTES_KEY, noteId)
+}
+
+function save(note) {
+    if (note.id) {
+        return storageService.put(NOTES_KEY, note)
+    } else {
+        return storageService.post(NOTES_KEY, note)
+    }
+}
+
 
 function _createNotes() {
     let notes = utilService.loadFromStorage(NOTES_KEY)
@@ -57,10 +93,9 @@ function _getNotes() {
     return notes;
 }
 
-function getEmptyNote() {
+function _getEmptyNote() {
     const note =
     {
-        id: utilService.makeId(4),
         createdAt: utilService.getCurrDate(),
         type: 'NoteTxt',
         isPinned: true,
@@ -68,8 +103,15 @@ function getEmptyNote() {
             backgroundColor: 'gray'
         },
         info: {
-            txt: ''
+            txt: utilService.makeLorem(10),
         }
     }
     return note
+}
+
+function addNewNote() {
+    return storageService.query(NOTES_KEY).then((notes => {
+        const newNote = _getEmptyNote()
+        return storageService.post(NOTES_KEY, newNote)
+    }))
 }
