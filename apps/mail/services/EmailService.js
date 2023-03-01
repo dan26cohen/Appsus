@@ -23,7 +23,7 @@ const gEmail = [
         subject: 'ebay',
         body: 'Would you want to buy this item now? 120303',
         isRead: false,
-        sentAt: 1551133930594,
+        sentAt: 1551183930594,
         removedAt: null,
         from: 'ebay',
         to: 'user@appsus.com'
@@ -33,7 +33,7 @@ const gEmail = [
         subject: 'hello',
         body: 'Would love tasasasasmes',
         isRead: false,
-        sentAt: 1551133930594,
+        sentAt: 1521333230594,
         removedAt: null,
         from: 'momo@momo.com',
         to: 'user@appsus.com'
@@ -43,7 +43,7 @@ const gEmail = [
         subject: 'FINAL SALE UP TO 70% OFF',
         body: 'Switch to LloydsDirect for free prescription delivery or collection at no extra cost to the NHS. Plus, order, track and get reminders for your ',
         isRead: false,
-        sentAt: 1551133930594,
+        sentAt: 1551433230594,
         removedAt: null,
         from: 'amazon',
         to: 'user@appsus.com'
@@ -53,10 +53,20 @@ const gEmail = [
         subject: 'כרטיסים למשחק',
         body: 'אני מצרפת לך כרטיסים למשחק כדורגל תבוא מוכן!',
         isRead: false,
-        sentAt: 1551133930594,
+        sentAt: 1521433130594,
         removedAt: null,
         from: 'אמא',
         to: 'user@appsus.com'
+    },
+    {
+        id: 'e105',
+        subject: 'You have 1 notifications you may not have seen',
+        body: 'lianlevi52, see star_baby, taliaguetas and more in your feed',
+        isRead: false,
+        sentAt: 1551433230594,
+        removedAt: null,
+        from: 'amazon',
+        to: 'instagram'
     },
     
 ]

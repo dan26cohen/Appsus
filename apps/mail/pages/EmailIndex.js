@@ -8,7 +8,7 @@ export default {
         <h1>inbox</h1>
         <EmailFilter class="search" @filter="setFilterBy"/>
         <EmailList
-                :emails="emails" 
+                :emails="filteredEmails" 
         />
 
     </Section>
@@ -21,6 +21,12 @@ export default {
             emails: null,
             selectedEmail: null,
             filterBy: {},
+        }
+    },
+    computed: {
+        filteredEmails() {
+            const regex = new RegExp(this.filterBy.title, 'i')
+            return this.emails.filter(email=> regex.test(email.subject))
         }
     },
     methods: {
