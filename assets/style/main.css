@@ -27,3 +27,5 @@
 @import 'apps/note/NoteTodos.css';
 @import 'apps/note/NoteTxt.css';
 @import 'apps/note/NoteFilter.css';
+@import 'apps/note/NoteList.css';
+@import 'apps/note/NoteEdit.css';

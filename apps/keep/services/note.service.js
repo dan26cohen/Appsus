@@ -10,6 +10,7 @@ export const noteService = {
     remove,
     save,
     addNewNote,
+    getEmptyNote,
 }
 _createNotes()
 
@@ -73,6 +74,7 @@ function _getNotes() {
             info: {
                 title: 'Note 2',
                 url: 'http://some-img/me',
+                txt: 'bla bla bla bla',
             },
             style: {
                 backgroundColor: '#00d'
@@ -84,6 +86,7 @@ function _getNotes() {
             isPinned: false,
             info: {
                 title: 'Note 3',
+                txt: 'bla bla bla bla',
                 todos: [
                     { txt: 'Driving license', doneAt: null },
                     { txt: 'Coding power', doneAt: 187111111 }
@@ -94,7 +97,7 @@ function _getNotes() {
     return notes;
 }
 
-function _getEmptyNote() {
+function getEmptyNote() {
     const note =
     {
         createdAt: utilService.getCurrDate(),
@@ -113,7 +116,7 @@ function _getEmptyNote() {
 
 function addNewNote() {
     return storageService.query(NOTES_KEY).then((notes => {
-        const newNote = _getEmptyNote()
+        const newNote = getEmptyNote()
         return storageService.post(NOTES_KEY, newNote)
     }))
 }

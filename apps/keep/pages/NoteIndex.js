@@ -7,7 +7,7 @@ export default {
     template: `
     <section class="notes-index">
         <button class="add-btn" @click="addNote">Add Note</button>
-        <NoteList :notes="notes" @remove="removeNote"/>
+        <NoteList :notes="notes" @remove="removeNote" @edit="editNote" />
     </section>`,
 
     data() {
@@ -26,7 +26,17 @@ export default {
         removeNote(noteId) {
             noteService.remove(noteId)
                 .then(() => {
-                    debugger
+                    const idx = this.notes.findIndex(note => note.id === noteId)
+                    this.notes.splice(idx, 1)
+                    console.log('note removed')
+                })
+                .catch(err => {
+                    console.log('error')
+                })
+        },
+        editNote(noteId) {
+            noteService.post(noteId)
+                .then(() => {
                     const idx = this.notes.findIndex(note => note.id === noteId)
                     this.notes.splice(idx, 1)
                     console.log('note removed')
