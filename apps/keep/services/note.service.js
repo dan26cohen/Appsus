@@ -1,5 +1,4 @@
-import { utilService } from './util.service'
-import { storageService } from './async-storage.service'
+import { utilService } from '../../../services/util.service.js'
 
 const NOTES_KEY = 'notesDB'
 
@@ -62,14 +61,14 @@ function getEmptyNote() {
     const note =
     {
         id: utilService.makeId(4),
-        createdAt: ,
+        createdAt: utilService.getCurrDate(),
         type: 'NoteTxt',
         isPinned: true,
         style: {
-            backgroundColor: '#00d'
+            backgroundColor: 'gray'
         },
         info: {
-            txt: 'Fullstack Me Baby!'
+            txt: ''
         }
     }
     return note
