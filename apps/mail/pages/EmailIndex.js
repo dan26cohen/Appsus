@@ -5,7 +5,6 @@ import EmailList from '../cmps/EmailList.js'
 export default {
     template: `
     <Section class="email-index">
-        <h1>inbox</h1>
         <EmailFilter class="search" @filter="setFilterBy"/>
         <EmailList
                 :emails="filteredEmails" 

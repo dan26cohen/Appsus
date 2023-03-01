@@ -1,9 +1,13 @@
 import EmailPreview from './EmailPreview.js'
+import EmailFolderList from './EmailFolderList.js'
 
 export default {
     props: ['emails'],
     template: `
         <section class="email-list">
+            <div class="folder-List">
+            <EmailFolderList/>
+            </div>
             <ul>
                 <li v-for="email in emails" :key="email.id">
                     <div @click="hello(email)">
@@ -26,6 +30,7 @@ export default {
         }
     },
     components: {
-        EmailPreview
+        EmailPreview,
+        EmailFolderList
     }
 }
