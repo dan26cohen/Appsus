@@ -6,7 +6,8 @@ export default {
             <h1 class="email-sender"> from : {{email.from}}</h1>
             <h1>{{email.subject}}</h1>
             <p>{{email.body}}</p>
-            <button @click="delete">delete</button>
+            <!-- <button @click="delete">x</button> -->
+            <!-- <button @click="delete">delete</button> -->
             <RouterLink to="/email">Back to list</RouterLink>
         </section>
     `,
@@ -25,9 +26,9 @@ export default {
                 }
                 )
         },
-        delete(){
-            EmailService.remove(emailId)
-        }
+        // delete(){
+        //     EmailService.remove(this.email.id)
+        // }
     },
     computed: {
         emailId() {
