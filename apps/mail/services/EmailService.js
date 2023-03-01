@@ -9,7 +9,7 @@ export const EmailService = {
     query,
     get,
     save,
-    // remove,
+    remove,
     // save,
     // getEmptyBook,
     // addReview,
@@ -130,7 +130,9 @@ function get(emailId) {
        
 }
 
-
+function remove(emailId) {
+    return storageService.remove(EMAIL_KEY, emailId)
+}
 
 function _createEmails() {
     

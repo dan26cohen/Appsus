@@ -12,7 +12,7 @@ export default {
     computed: {
         handleDate() {
             var date = new Date(this.email.sentAt * 1000)
-            let fixedDate = date.toLocaleDateString('en-us', {month:"long", day:"numeric"});
+            let fixedDate = date.toLocaleDateString('en-us', {month:"short", day:"numeric"});
             return fixedDate
 
         }
