@@ -6,7 +6,15 @@ import NoteList from '../cmps/NoteList.js'
 export default {
     template: `
     <section class="notes-index">
-        <button class="add-btn" @click="addNote">Add Note</button>
+        <form class="add-note-form">
+            <input type="text" class="add-title-input">
+            <input type="text" class="add-txt-input">
+            <button class="add-btn" @click="addNote">Add Note</button>
+        </form>
+        </div>
+
+
+        </div>
         <NoteList :notes="notes" @remove="removeNote" @edit="editNote" />
     </section>`,
 

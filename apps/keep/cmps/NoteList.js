@@ -6,11 +6,6 @@ export default {
             <ul class="note-list">
                 <li v-for="note in notes" :key="note.id" class="note-li">
                     <NotePreview :note="note"/>
-                    <RouterLink :to="'/note/edit/'+note.id" >Edit Note</RouterLink> 
-                    <div class="note-btns">
-                    <i title="Delete" class="fa-regular fa-trash-can" @click="remove(note.id)" class="close-note-btn"></i>
-                    <i title="Paint" class="fa-solid fa-paintbrush"></i>
-                    </div>
                 </li>
             </ul>
     </section>`,
@@ -18,10 +13,9 @@ export default {
         remove(noteId) {
             this.$emit('remove', noteId)
         },
-        edit(noteId) {
-            this.$emit('edit', noteId)
-        }
+
     },
+
     components: {
         NotePreview,
     },
