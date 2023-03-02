@@ -173,12 +173,13 @@ function readEmail(email) {
 }
 
 function deleteEmail(email) {
-    let emails = utilService.loadFromStorage(EMAIL_KEY)
-    let curEmail = emails.find(e => email.id === e.id)
-    curEmail.readAt = Date.now()
-    curEmail.status = 'trash'
-    save(curEmail)
-    return emails
+    return query().then(emails => {
+        let curEmail = emails.find(e => email.id === e.id)
+        curEmail.readAt = Date.now()
+        curEmail.status = 'trash'
+        save(curEmail)
+        return emails
+    })
 }
 
 function addEmail(email) {
@@ -190,3 +191,13 @@ function addEmail(email) {
         })
 
 }
+
+
+// function deleteEmail(email) {
+//     let emails = utilService.loadFromStorage(EMAIL_KEY)
+//     let curEmail = emails.find(e => email.id === e.id)
+//     curEmail.readAt = Date.now()
+//     curEmail.status = 'trash'
+//     save(curEmail)
+//     return emails
+// }

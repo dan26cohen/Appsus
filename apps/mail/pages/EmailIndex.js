@@ -53,12 +53,14 @@ export default {
             this.unReadCount = unReadMails.length
         },
         deleteEmail(email) {
-            let emails = EmailService.deleteEmail(email)
-            this.emails = emails
-            console.log(this.emails);
+            EmailService.deleteEmail(email).then(newEmails => {
+                this.emails = newEmails
+            })
         },
-        addEmail(email){
-         this.emails.push(email)
+        addEmail(email) {
+            EmailService.addEmail(email).then(newEmail => {
+                this.emails.push(newEmail)
+            })
         }
 
     },

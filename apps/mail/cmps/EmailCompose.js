@@ -22,25 +22,23 @@ export default {
             </section>
         </form>
         `,
-        data(){
-            return {
-                email: {
-                    subject:'',
-                    body:'',
-                    to:'',
-                }
-            }
-        },
-        methods: {
-            close() {
-                this.$emit('close')
-            },
-            sendEmail(){
-                console.log(this.email);
-                EmailService.addEmail(this.email).then(email=> {
-                    console.log(email)
-                    this.$emit('addEmail',email)
-                })
+    data() {
+        return {
+            email: {
+                subject: '',
+                body: '',
+                to: '',
             }
         }
+    },
+    methods: {
+        close() {
+            this.$emit('close')
+        },
+        sendEmail() {
+            console.log(this.email);
+            this.$emit('addEmail', this.email)
+
+        }
     }
+}
