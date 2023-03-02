@@ -4,8 +4,8 @@ export default {
     template: `
      <section class="note-list-container">
             <ul class="note-list">
-                <li v-for="note in notes" :key="note.id" class="note-li" >
-                    <NotePreview :note="note"/ @remove=remove(note.id) @save="update(note.id)">
+                <li v-for="note in notes" :key="note.id" class="note-li">
+                    <NotePreview style="color: red;" :note="note"/ @remove=remove(note.id) @save="update(note.id)"  @duplicate="duplicateNote(note.id)">
                 </li>
             </ul>
     </section>`,
@@ -15,6 +15,9 @@ export default {
         },
         update(noteId) {
             this.$emit('update', noteId)
+        },
+        duplicateNote(noteId) {
+            this.$emit('duplicate', noteId)
         }
     },
 

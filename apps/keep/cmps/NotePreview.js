@@ -10,6 +10,7 @@ export default {
             
             <div class="note-btns" :class="{'show': showBtns}">
                 <i title="Delete" class="fa-regular fa-trash-can" @click="remove(note.id)" class="close-note-btn"></i>
+                <i title="Duplicate Note" @click="duplicate(note.id)"  class="fa-regular fa-clone"></i>
                 <input type="color" v-model="bgc">
                 <a @click="edit(note.id)">Edit Note </a>
             </div>
@@ -42,6 +43,9 @@ export default {
         },
         save(noteId) {
             this.$emit('save', noteId)
+        },
+        duplicate(noteId) {
+            this.$emit('duplicate', noteId)
         }
     },
 

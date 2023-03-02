@@ -15,8 +15,8 @@ export default {
 
 
         </div>
-        <NoteList :notes="notes" @update="editNote"
-        @blur="blurScreen" @remove="removeNote" @edit="editNote" @paint="paintNote"/>
+        <NoteList :notes="notes" @update="updateNote" @duplicate="duplicateNote"
+        @blur="blurScreen" @remove="removeNote" @paint="paintNote"/>
     </section>`,
 
     data() {
@@ -47,21 +47,36 @@ export default {
                     console.log('error')
                 })
         },
-        editNote(noteId) {
-            noteService.post(noteId)
+        updateNote(noteId) {
+            const idx = this.notes.findIndex(note => note.id === noteId)
+            noteService.save(this.notes[idx])
                 .then(() => {
-                    const idx = this.notes.findIndex(note => note.id === noteId)
-                    this.notes.splice(idx, 1)
-                    console.log('note removed')
+                    console.log('note saved')
                 })
                 .catch(err => {
-                    console.log('error')
+                    console.log('note not saved')
+                })
+        },
+        duplicateNote(noteId) {
+            const idx = this.notes.findIndex(note => note.id === noteId)
+            const newNote = { ...this.notes[idx] }
+            newNote.id = ''
+            this.notes.push(newNote)
+            noteService.save(newNote)
+                .then(() => {
+                    console.log('note saved')
+                })
+                .catch(err => {
+                    console.log('note not saved')
                 })
         },
         paintNote(noteId, color) {
             noteService.paintNote(noteId, color)
                 .then(() => {
                     console.log('note painted')
+                    const idx = this.notes.findIndex(note => note.id === noteId)
+                    this.note.style.backgroundColor = color
+                    noteService.save(this.notes[idx])
                 })
                 .catch(err => {
                     console.log('error')
@@ -69,9 +84,7 @@ export default {
         },
         blurScreen() {
             this.isEditMode = true
-        }
-
-
+        },
     },
 
     computed: {
