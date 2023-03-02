@@ -12,6 +12,7 @@ export default {
             <li @click="setColor('lightcoral',note.id)" class="color-li" style="backgroundColor:lightcoral"></li>
             <li @click="setColor('lightblue',note.id)" class="color-li" style="backgroundColor:lightblue"></li>
             <li @click="setColor('purple',note.id)" class="color-li" style="backgroundColor:purple"></li>
+            <li @click="close" class="color-li">x</li>
         </ul>
     </div>
 `,
@@ -21,11 +22,14 @@ export default {
     },
     methods: {
         setColor(color, id) {
-            noteService.paintNote(id, color)
-                .then(console.log('note painted'))
-                .then(this.$emit('paint'))
+            noteService
+                .paintNote(id, color)
+                .then(() => this.$emit('paint'))
                 .catch('error')
         },
+        close() {
+            this.$emit('close')
+        }
     },
     computed: {
 

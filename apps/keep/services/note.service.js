@@ -39,7 +39,6 @@ function remove(noteId) {
 
 function save(note) {
     if (note.id) {
-        console.log('note saved', note)
         return storageService.put(NOTES_KEY, note)
     } else {
         return storageService.post(NOTES_KEY, note)
@@ -130,13 +129,12 @@ function addNewNote(txt, title) {
 
 function paintNote(noteId, color) {
     return storageService.query(NOTES_KEY).then((notes => {
-        debugger
         const idx = notes.findIndex(note => note.id === noteId)
         console.log('color service', color)
         notes[idx].style.backgroundColor = color
         const newNote = JSON.parse(JSON.stringify(notes[idx]));
         console.log('newNote', newNote)
-        save(newNote)
+        return save(newNote)
     }))
 }
 

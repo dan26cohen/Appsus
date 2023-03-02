@@ -52,14 +52,22 @@
 }
 
 .edit-modal.open {
-    display: block;
+    display: flex;
+    flex-direction: column;
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -70%);
     background-color: white;
     z-index: 2;
-    padding: 100px 500px;
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+}
+
+
+.edit-modal input {
+    font-size: 30px;
+    width: 500px;
+    border: none;
 }

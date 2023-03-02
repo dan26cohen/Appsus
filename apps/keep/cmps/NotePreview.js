@@ -17,7 +17,7 @@ export default {
             </div>
         </div>
     </article>
-    <NoteColor :note="note" @paint="paint" v-if="isPainterOn"/>
+    <NoteColor :note="note" @paint="paint" v-if="isPainterOn" @close="closeModal"/>
     <div class="edit-modal" :class="{'open':isEditMode}">
         <input placeholder="Title..." type="text" class="add-title-input" v-model="note.info.title">
         <input placeholder="Take a note..." type="text" class="add-txt-input"  v-model="note.info.txt">
@@ -55,6 +55,9 @@ export default {
         },
         openPainter() {
             this.isPainterOn = !this.isPainterOn
+        },
+        closeModal() {
+            this.isPainterOn = false;
         }
 
 
