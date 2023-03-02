@@ -75,7 +75,7 @@ function _getNotes() {
             isPinned: false,
             info: {
                 title: 'Note 2',
-                url: 'http://some-img/me',
+                url: '../../../img/1.png',
                 txt: 'bla bla bla bla',
             },
             style: {
@@ -108,7 +108,7 @@ function _getNotes() {
                 backgroundColor: 'white'
             },
             info: {
-                title: 'Note 4',
+                title: 'Note 7',
                 txt: utilService.makeLorem(30),
                 todos: [
                     { txt: 'Driving license', doneAt: null },
@@ -141,6 +141,7 @@ function _getNotes() {
                 backgroundColor: 'lightseagreen'
             },
             info: {
+                title: 'To Do List 3',
                 todos: [
                     { txt: 'Driving license', doneAt: null },
                     { txt: utilService.makeLorem(3), doneAt: null },
@@ -160,7 +161,7 @@ function _getNotes() {
                 backgroundColor: 'white'
             },
             info: {
-                title: 'Note 4',
+                title: 'Untitled',
                 txt: utilService.makeLorem(30),
             },
         },
@@ -172,7 +173,7 @@ function _getNotes() {
                 backgroundColor: 'lightseagreen'
             },
             info: {
-                title: 'Note 4',
+                title: 'Note 10',
                 txt: utilService.makeLorem(30),
             },
         },
@@ -186,6 +187,48 @@ function _getNotes() {
             info: {
                 title: 'Note 4',
                 txt: utilService.makeLorem(50),
+            },
+        },
+        {
+            id: 'n10422',
+            type: 'NoteTodos',
+            isPinned: false,
+            style: {
+                backgroundColor: 'lightcoral'
+            },
+            info: {
+                title: 'To Do List 2',
+                txt: utilService.makeLorem(30),
+                todos: [
+                    { txt: 'Driving license', doneAt: null },
+                    { txt: utilService.makeLorem(3), doneAt: null },
+                    { txt: utilService.makeLorem(3), doneAt: null },
+                    { txt: utilService.makeLorem(3), doneAt: null },
+                    { txt: utilService.makeLorem(3), doneAt: null },
+                    { txt: utilService.makeLorem(3), doneAt: null },
+                    { txt: utilService.makeLorem(3), doneAt: null },
+                ]
+            },
+        },
+        {
+            id: 'n10111',
+            type: 'NoteTodos',
+            isPinned: false,
+            style: {
+                backgroundColor: 'lightpurple'
+            },
+            info: {
+                title: 'To Do List 3',
+                txt: utilService.makeLorem(10),
+                todos: [
+                    { txt: 'Driving license', doneAt: null },
+                    { txt: utilService.makeLorem(3), doneAt: null },
+                    { txt: utilService.makeLorem(3), doneAt: null },
+                    { txt: utilService.makeLorem(3), doneAt: null },
+                    { txt: utilService.makeLorem(3), doneAt: null },
+                    { txt: utilService.makeLorem(3), doneAt: null },
+                    { txt: utilService.makeLorem(3), doneAt: null },
+                ]
             },
         },
 

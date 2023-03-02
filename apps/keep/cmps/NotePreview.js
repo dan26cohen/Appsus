@@ -2,6 +2,7 @@ import { noteService } from '../services/note.service.js'
 import NoteColor from './NoteColor.js'
 import NoteTxt from './NoteTxt.js'
 import NoteTodos from './NoteTodos.js'
+import NoteImg from './NoteImg.js'
 
 export default {
     props: ['note'],
@@ -74,6 +75,7 @@ export default {
     components: {
         NoteColor,
         NoteTxt,
-        NoteTodos
+        NoteTodos,
+        NoteImg,
     }
 }
