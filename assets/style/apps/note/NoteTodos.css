@@ -1,0 +1,7 @@
+.done {
+    text-decoration: line-through;
+}
+
+.todo-ul {
+    padding: 0;
+}

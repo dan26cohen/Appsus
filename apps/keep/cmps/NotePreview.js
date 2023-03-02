@@ -1,13 +1,14 @@
 import { noteService } from '../services/note.service.js'
 import NoteColor from './NoteColor.js'
+import NoteTxt from './NoteTxt.js'
+import NoteTodos from './NoteTodos.js'
 
 export default {
     props: ['note'],
     template: `
      <article class="note-preview" @mouseover="showBtns=true" @mouseout="showBtns=false" >
         <div class="note-container" >
-            <h2> {{note.info.title}}  </h2>
-            <p> {{note.info.txt}} </p>
+            <component :is="note.type" :info="note.info" @changeInfo="updateNote" />
             
             <div class="note-btns" :class="{'show': showBtns}">
                 <i title="Delete" class="fa-regular fa-trash-can" @click="remove(note.id)" class="close-note-btn"></i>
@@ -61,9 +62,10 @@ export default {
         },
         closeModal() {
             this.isPainterOn = false;
-        }
+        },
+        updateNote() {
 
-
+        },
     },
     computed: {
 
@@ -71,6 +73,7 @@ export default {
 
     components: {
         NoteColor,
-        noteService,
+        NoteTxt,
+        NoteTodos
     }
 }

@@ -93,14 +93,16 @@ function _getNotes() {
                 title: 'Note 3',
                 txt: 'bla bla bla bla',
                 todos: [
-                    { txt: 'Driving license', doneAt: null },
-                    { txt: 'Coding power', doneAt: 187111111 }
+                    { txt: 'Finish Sprint 1', doneAt: 187111111 },
+                    { txt: 'Finish Sprint 2', doneAt: 187111111 },
+                    { txt: 'Finish Sprint 3', doneAt: null },
+                    { txt: 'Finish Sprint 4', doneAt: null },
                 ]
             },
         },
         {
             id: 'n104',
-            type: 'NoteTxt',
+            type: 'NoteTodos',
             isPinned: false,
             style: {
                 backgroundColor: 'white'
@@ -108,6 +110,15 @@ function _getNotes() {
             info: {
                 title: 'Note 4',
                 txt: utilService.makeLorem(30),
+                todos: [
+                    { txt: 'Driving license', doneAt: null },
+                    { txt: utilService.makeLorem(3), doneAt: null },
+                    { txt: utilService.makeLorem(3), doneAt: null },
+                    { txt: utilService.makeLorem(3), doneAt: null },
+                    { txt: utilService.makeLorem(3), doneAt: null },
+                    { txt: utilService.makeLorem(3), doneAt: null },
+                    { txt: utilService.makeLorem(3), doneAt: null },
+                ]
             },
         },
         {
@@ -124,14 +135,57 @@ function _getNotes() {
         },
         {
             id: 'n106',
+            type: 'NoteTodos',
+            isPinned: false,
+            style: {
+                backgroundColor: 'lightseagreen'
+            },
+            info: {
+                todos: [
+                    { txt: 'Driving license', doneAt: null },
+                    { txt: utilService.makeLorem(3), doneAt: null },
+                    { txt: utilService.makeLorem(3), doneAt: null },
+                    { txt: utilService.makeLorem(3), doneAt: null },
+                    { txt: utilService.makeLorem(3), doneAt: null },
+                    { txt: utilService.makeLorem(3), doneAt: null },
+                    { txt: utilService.makeLorem(3), doneAt: null },
+                ]
+            },
+        },
+        {
+            id: 'n1011',
+            type: 'NoteTxt',
+            isPinned: false,
+            style: {
+                backgroundColor: 'white'
+            },
+            info: {
+                title: 'Note 4',
+                txt: utilService.makeLorem(30),
+            },
+        },
+        {
+            id: 'n1012',
             type: 'NoteTxt',
             isPinned: false,
             style: {
                 backgroundColor: 'lightseagreen'
             },
             info: {
-                title: 'Note 6',
-                txt: utilService.makeLorem(26),
+                title: 'Note 4',
+                txt: utilService.makeLorem(30),
+            },
+        },
+        {
+            id: 'n1012',
+            type: 'NoteTxt',
+            isPinned: false,
+            style: {
+                backgroundColor: 'lightcyan'
+            },
+            info: {
+                title: 'Note 4',
+                txt: utilService.makeLorem(50),
             },
         },
 
