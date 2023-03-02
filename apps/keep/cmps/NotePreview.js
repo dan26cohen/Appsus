@@ -14,7 +14,7 @@ export default {
                 <i title="Duplicate Note" @click="duplicate(note.id)"  class="fa-regular fa-clone"></i>
                 <a @click="edit(note.id)">Edit Note </a>
             </div>
-            <NoteColor :note="note" @paint="paintNote"/>
+            <NoteColor :note="note" @paint="paint"/>
         </div>
     </article>
     <div class="edit-modal" :class="{'open':isEditMode}">
@@ -48,6 +48,10 @@ export default {
         remove() {
             this.$emit('remove')
         },
+        paint(color) {
+            this.$emit('paint', color)
+        }
+
 
     },
     computed: {

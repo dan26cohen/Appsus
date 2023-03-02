@@ -12,6 +12,7 @@ export const noteService = {
     addNewNote,
     getEmptyNote,
     paintNote,
+    getNoteById,
 }
 _createNotes()
 
@@ -86,6 +87,9 @@ function _getNotes() {
             id: 'n103',
             type: 'NoteTodos',
             isPinned: false,
+            style: {
+                backgroundColor: 'gray'
+            },
             info: {
                 title: 'Note 3',
                 txt: 'bla bla bla bla',
@@ -93,7 +97,8 @@ function _getNotes() {
                     { txt: 'Driving license', doneAt: null },
                     { txt: 'Coding power', doneAt: 187111111 }
                 ]
-            }
+            },
+
         }
     ]
     return notes;
@@ -124,11 +129,22 @@ function addNewNote(txt, title) {
 }
 
 function paintNote(noteId, color) {
+    debugger
     return storageService.query(NOTES_KEY).then((notes => {
+        console.log('notes', notes)
         const idx = notes.findIndex(note => note.id === noteId)
-        console.log('noteId,color', noteId, color)
+        console.log('noteId\nnote', noteId, color, notes[idx])
         notes[idx].style.backgroundColor = color
-        return storageService.put(NOTES_KEY, notes[idx])
+        return save(notes[idx])
+    }))
+}
+
+function getNoteById(noteId) {
+    return storageService.query(NOTES_KEY).then((notes => {
+        console.log('notes', notes)
+        const idx = notes.findIndex(note => note.id === noteId)
+        if (idx === -1) return
+        return notes[idx]
     }))
 }
 
