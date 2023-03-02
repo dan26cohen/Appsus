@@ -38,6 +38,7 @@ function remove(noteId) {
 
 function save(note) {
     if (note.id) {
+        console.log('note saved', note)
         return storageService.put(NOTES_KEY, note)
     } else {
         return storageService.post(NOTES_KEY, note)
@@ -78,7 +79,7 @@ function _getNotes() {
                 txt: 'bla bla bla bla',
             },
             style: {
-                backgroundColor: '#00d'
+                backgroundColor: 'green'
             }
         },
         {
@@ -105,7 +106,7 @@ function getEmptyNote(txt, title) {
         type: 'NoteTxt',
         isPinned: true,
         style: {
-            backgroundColor: 'lime',
+            backgroundColor: 'white',
         },
         info: {
             title,
