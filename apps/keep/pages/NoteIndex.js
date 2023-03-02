@@ -13,7 +13,7 @@ export default {
             <button type="submit" class="add-btn" :class="{'edit-mode':isEditMode}">Add Note</button>
         </form>
         <NoteList :notes="notes" @update="updateNote" @duplicate="duplicateNote"
-        @blur="blurScreen" @remove="removeNote" @paint="paintNote"/>
+        @blur="blurScreen" @remove="removeNote" @paint="paint"/>
     </section>`,
 
     data() {
@@ -71,6 +71,11 @@ export default {
         blurScreen() {
             this.isEditMode = true
         },
+        paint() {
+            noteService.query()
+                .then(notes => this.notes = notes)
+                .catch('error paint')
+        }
     },
 
     computed: {

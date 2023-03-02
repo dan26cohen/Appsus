@@ -1,12 +1,21 @@
+.color-modal {
+    position: fixed;
+    background-color: white;
+    padding: 15px;
+    border-radius: 20px;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 1px black;
+}
+
 .color-ul {
     display: flex;
     margin: auto;
     padding: 0;
+    gap: 5px;
 }
 
 
 .color-li {
-    border: 1px solid rgb(255, 255, 255);
     background-color: white;
     padding: 5px;
     border-radius: 50%;

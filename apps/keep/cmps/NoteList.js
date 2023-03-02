@@ -7,7 +7,7 @@ export default {
      <section class="note-list-container">
             <ul class="note-list">
                 <li v-for="note in notes" :key="note.id" class="note-li" :style="{'background-color': note.style?.backgroundColor || white}" @click="selectNote(note.id)" >
-                    <NotePreview  :note="note" @remove=remove(note.id) 
+                    <NotePreview  :note="note" @remove=remove(note.id)  @paint=paint
                     @save="update(note.id)"  @duplicate="duplicateNote(note.id)"/>
                 </li>
             </ul>
@@ -32,13 +32,13 @@ export default {
             console.log('noteId', noteId)
             noteService.getNoteById(noteId).then(note => this.selectedNote = note)
             console.log('this.selectedNote', this.selectedNote)
+        },
+        paint() {
+            this.$emit('paint')
         }
 
     },
-
     components: {
         NotePreview,
     },
 }
-
-//

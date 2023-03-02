@@ -12,11 +12,12 @@ export default {
             <div class="note-btns" :class="{'show': showBtns}">
                 <i title="Delete" class="fa-regular fa-trash-can" @click="remove(note.id)" class="close-note-btn"></i>
                 <i title="Duplicate Note" @click="duplicate(note.id)"  class="fa-regular fa-clone"></i>
+                <i title="Paint Note" class="fa-solid fa-paintbrush" @click="openPainter"></i>
                 <a @click="edit(note.id)">Edit Note </a>
             </div>
-            <NoteColor :note="note" @paint="paint"/>
         </div>
     </article>
+    <NoteColor :note="note" @paint="paint" v-if="isPainterOn"/>
     <div class="edit-modal" :class="{'open':isEditMode}">
         <input placeholder="Title..." type="text" class="add-title-input" v-model="note.info.title">
         <input placeholder="Take a note..." type="text" class="add-txt-input"  v-model="note.info.txt">
@@ -29,6 +30,7 @@ export default {
             showBtns: false,
             selectedBgc: '',
             isEditMode: false,
+            isPainterOn: false,
         }
     },
     methods: {
@@ -48,21 +50,19 @@ export default {
         remove() {
             this.$emit('remove')
         },
-        paint(color) {
-            this.$emit('paint', color)
+        paint() {
+            this.$emit('paint')
+        },
+        openPainter() {
+            this.isPainterOn = !this.isPainterOn
         }
 
 
     },
     computed: {
 
-
-
-
     },
-    created() {
-        console.log('this.note', this.note)
-    },
+
     components: {
         NoteColor,
         noteService,

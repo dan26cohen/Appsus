@@ -129,13 +129,14 @@ function addNewNote(txt, title) {
 }
 
 function paintNote(noteId, color) {
-    debugger
     return storageService.query(NOTES_KEY).then((notes => {
-        console.log('notes', notes)
+        debugger
         const idx = notes.findIndex(note => note.id === noteId)
-        console.log('noteId\nnote', noteId, color, notes[idx])
+        console.log('color service', color)
         notes[idx].style.backgroundColor = color
-        return save(notes[idx])
+        const newNote = JSON.parse(JSON.stringify(notes[idx]));
+        console.log('newNote', newNote)
+        save(newNote)
     }))
 }
 

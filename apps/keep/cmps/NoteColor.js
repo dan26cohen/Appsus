@@ -5,7 +5,7 @@ export default {
     template: `
     <div class="color-modal">
         <ul class="color-ul">
-            <li @click="setColor('white',note.id)" class="color-li" style="backgroundColor:antique"></li>
+            <li @click="setColor('white',note.id)" class="color-li" style="backgroundColor:#f5f5f5"></li>
             <li @click="setColor('orange',note.id)" class="color-li" style="backgroundColor:orange"></li>
             <li @click="setColor('lime',note.id)" class="color-li" style="backgroundColor:green"></li>
             <li @click="setColor('yellow',note.id)" class="color-li" style="backgroundColor:yellow"></li>
@@ -23,6 +23,8 @@ export default {
         setColor(color, id) {
             noteService.paintNote(id, color)
                 .then(console.log('note painted'))
+                .then(this.$emit('paint'))
+                .catch('error')
         },
     },
     computed: {
