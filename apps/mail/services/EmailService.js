@@ -10,7 +10,9 @@ export const EmailService = {
     get,
     save,
     remove,
-    readEmail
+    readEmail,
+    deleteEmail,
+    addEmail
     // save,
     // getEmptyBook,
     // addReview,
@@ -136,7 +138,6 @@ function query(filterBy = {}) {
 }
 
 function get(emailId) {
-    console.log(emailId);
     return storageService.get(EMAIL_KEY, emailId)
 
 }
@@ -155,7 +156,6 @@ function _createEmails() {
 }
 
 function save(email) {
-    console.log(email);
     if (email.id) {
         return storageService.put(EMAIL_KEY, email)
     } else {
@@ -175,7 +175,18 @@ function readEmail(email) {
 function deleteEmail(email) {
     let emails = utilService.loadFromStorage(EMAIL_KEY)
     let curEmail = emails.find(e => email.id === e.id)
-    curEmail.readAt= Date.now()
+    curEmail.readAt = Date.now()
+    curEmail.status = 'trash'
     save(curEmail)
     return emails
+}
+
+function addEmail(email) {
+    email.subject = 'inbox'
+    email.isRead = false
+    return storageService.post(EMAIL_KEY, email)
+        .then(email => {
+            return email
+        })
+
 }

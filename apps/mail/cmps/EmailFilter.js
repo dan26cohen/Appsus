@@ -5,6 +5,7 @@ export default {
         <button class="compose-btn" @click="openCompose" ><i class="fa-regular fa-pen-to-square" ></i> Compose</button>
         <EmailCompose 
           v-if="isOpen"
+          @addEmail="addEmail"
           @close="closeCompose"
           />
             <input class="search-input" 
@@ -29,6 +30,9 @@ export default {
         },
         closeCompose() {
             this.isOpen = !this.isOpen
+        },
+        addEmail(email){
+            this.$emit('addEmail',email)
         }
     },
     components: {
