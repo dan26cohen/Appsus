@@ -12,6 +12,7 @@
     border-radius: 19px;
     translate: -112px 10px;
     width: 10vw;
+    min-width: 100px;
 }
 
 .compose-header{

@@ -11,6 +11,7 @@ export default {
             <EmailFolderList :unReadCount="unReadCount" @folderFilter='folderFilter'/>
             <EmailList
                     :emails="filteredEmails" 
+                    @readEmail="readEmail"
             />
         </div>
 
@@ -44,6 +45,12 @@ export default {
         },
         folderFilter(filter) {
             this.filterBy.status = filter
+        },
+        readEmail(email) {
+            let emails = EmailService.readEmail(email)
+            this.emails = emails
+            const unReadMails = emails.filter(email => (email.isRead === false && email.status === 'inbox'))
+            this.unReadCount = unReadMails.length
         }
 
     },

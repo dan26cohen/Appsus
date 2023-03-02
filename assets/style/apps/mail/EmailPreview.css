@@ -10,8 +10,16 @@
 
 .email-preview:hover{
   box-shadow: inset 0px -1px 0 #877b7b ;
-
+  
 }
+
+.email-preview:hover .delete-btn{
+    opacity: 1;
+}
+.email-preview:hover .date{
+    opacity: 0;
+}
+
 .unRead{
     font-weight: bold;
     background-color: rgb(255, 255, 255);
@@ -21,3 +29,19 @@
 .read{
     background-color: #f2f6fc;
 }
+
+.end-prev{
+   display: flex;
+   align-items: center;
+   gap: 10px;
+}
+
+.delete-btn{
+    width: fit-content;
+    height: fit-content;
+    opacity: 0;
+    scale: 1.4;
+    border: none;
+    background-color: transparent;
+}
+

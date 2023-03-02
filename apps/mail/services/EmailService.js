@@ -10,6 +10,7 @@ export const EmailService = {
     get,
     save,
     remove,
+    readEmail
     // save,
     // getEmptyBook,
     // addReview,
@@ -30,7 +31,7 @@ const gEmail = [
         from: 'ebay',
         to: 'user@appsus.com'
     },
-    { 
+    {
         id: 'e102',
         status: 'inbox',
         subject: 'hello',
@@ -74,7 +75,7 @@ const gEmail = [
         from: 'instagram',
         to: 'user@appsus.com'
     },
-    
+
     {
         id: 'e106',
         status: 'inbox',
@@ -86,7 +87,7 @@ const gEmail = [
         from: 'noreply@discord.com',
         to: 'user@appsus.com'
     },
-    
+
     {
         id: 'e107',
         status: 'inbox',
@@ -98,7 +99,7 @@ const gEmail = [
         from: 'google',
         to: 'user@appsus.com'
     },
-    
+
     {
         id: 'e108',
         status: 'trash',
@@ -110,7 +111,7 @@ const gEmail = [
         from: 'הפניקס',
         to: 'user@appsus.com'
     },
-    
+
     {
         id: 'e109',
         status: 'sent',
@@ -122,22 +123,22 @@ const gEmail = [
         from: 'instagram',
         to: 'user@appsus.com'
     },
-    
+
 ]
 
 _createEmails()
 
 function query(filterBy = {}) {
     return storageService.query(EMAIL_KEY)
-    .then(emails => {
-        return emails
-    })
+        .then(emails => {
+            return emails
+        })
 }
 
 function get(emailId) {
     console.log(emailId);
     return storageService.get(EMAIL_KEY, emailId)
-       
+
 }
 
 function remove(emailId) {
@@ -145,7 +146,7 @@ function remove(emailId) {
 }
 
 function _createEmails() {
-    
+
     let emails = utilService.loadFromStorage(EMAIL_KEY)
     if (!emails || !emails.length) {
         emails = gEmail
@@ -160,4 +161,21 @@ function save(email) {
     } else {
         return storageService.post(EMAIL_KEY, email)
     }
+}
+
+
+function readEmail(email) {
+    let emails = utilService.loadFromStorage(EMAIL_KEY)
+    let curEmail = emails.find(e => email.id === e.id)
+    curEmail.isRead = true
+    save(curEmail)
+    return emails
+}
+
+function deleteEmail(email) {
+    let emails = utilService.loadFromStorage(EMAIL_KEY)
+    let curEmail = emails.find(e => email.id === e.id)
+    curEmail.readAt= Date.now()
+    save(curEmail)
+    return emails
 }

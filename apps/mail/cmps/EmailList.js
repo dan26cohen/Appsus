@@ -33,22 +33,13 @@ export default {
     methods: {
         toggle(emailClicked) {
             this.selectedEmail = emailClicked
-
-            EmailService.get(emailClicked.id)
-                .then(email => {
-                    email.isRead = true
-                    EmailService.save(email)
-            
-                }
-                )
-
+            this.$emit('readEmail',emailClicked)
             this.listIsShown = !this.listIsShown
             this.detailsIsShown = !this.detailsIsShown
         },
         toggleExit(){
             this.listIsShown = !this.listIsShown
             this.detailsIsShown = !this.detailsIsShown
-            location.reload();
         }
     },
     computed: {
