@@ -1,7 +1,17 @@
 .compose{
-    background-color: rgb(174, 166, 166);
+    background-color: rgb(252, 241, 241);
     position: absolute;
-    bottom: 100px;
+    bottom: 1px;
+    right: 2px;
+    box-shadow: -1px -1px 0 #00000038;
+}
+
+.compose-btn{
+    background-color: rgba(173, 216, 230, 0.527);
+    border: none;
+    border-radius: 19px;
+    translate: -112px 10px;
+    width: 10vw;
 }
 
 .compose-header{
@@ -12,4 +22,45 @@
 
 .compose-text{
     display: flex;
+    flex-direction: column;
 }
+
+.compose input{
+    background-color: white;
+    border: none;
+    outline: none;
+    border-radius: 0%;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.18);
+}
+
+.compose textarea{
+    border: none;
+    outline: none;
+}
+
+.close-compose{
+    background-color: transparent;
+    border: none;
+    scale: 1.4;
+}
+
+.compose-send{
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-between;
+}
+
+.send{
+    background-color: rgba(173, 216, 230, 0.315);
+    border: 1px;
+    height: 30px;
+    width: 60px;
+    border-radius: 30px;
+    
+}
+.delete{
+    background-color: transparent;
+    border: none;
+    scale: 1.7;
+}
+

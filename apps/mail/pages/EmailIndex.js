@@ -33,7 +33,8 @@ export default {
             let emails = this.emails
             const regex = new RegExp(this.filterBy.title, 'i')
             emails = emails.filter(email => regex.test(email.subject))
-            emails = emails.filter(email => email.status === this.filterBy.status)
+            emails = emails.filter(email => email.status === this.filterBy.status &&
+            !email.removedAt)
             return emails
         }
     },

@@ -8,12 +8,12 @@ export default {
             <p>{{email.body}}</p>
             <!-- <button @click="delete">x</button> -->
             <!-- <button @click="delete">delete</button> -->
-            <!-- <RouterLink to="/email">Back to list</RouterLink> -->
+            <button @click="deleteEmail" className="delete"><i class="fa-regular fa-trash-can"></i></button>
         </section>
     `,
     data() {
         return {
-            
+
         }
     },
     methods: {
@@ -26,12 +26,19 @@ export default {
         //         }
         //         )
         // },
-        // delete(){
-        //     EmailService.remove(this.email.id)
-        // }
+        deleteEmail() {
+            console.log('hey');
+            EmailService.get(this.email.id)
+                .then(email => {
+                    email.removedAt = 112334
+                   
+                }
+                )
+        }
     },
     computed: {
         // emailId() {
         //     return this.$route.params.emailId
         // },
-}}
+    }
+}
