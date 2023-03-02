@@ -1,6 +1,7 @@
 import { noteService } from '../services/note.service.js'
 
 export default {
+    props: ['note'],
     template: `
         <section class="note-edit">
             <form @submit.prevent="save">
@@ -9,7 +10,6 @@ export default {
                 <input type="text" v-model="note.info.txt" placeholder="Price...">
                 <button>Save</button>
             </form>
-            <RouterLink to="/notes"><span class="back-route">Back</span></RouterLink>
         </section>
     `,
     data() {
@@ -25,14 +25,6 @@ export default {
         }
     },
     methods: {
-        save() {
-            noteService.save(this.note)
-                .then(savednote => {
-                    console.log('note saved', savednote)
-                    this.$router.push('/notes')
-                })
-                .catch(console.log('error in save'))
-        },
 
     }
 }

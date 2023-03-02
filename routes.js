@@ -30,7 +30,7 @@ const routerOptions = {
 			component: AboutUs,
 		},
 		{
-			path: '/note/edit/:noteId?',
+			path: '/notes/+noteId',
 			component: NoteEdit
 		},
 	],
