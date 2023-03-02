@@ -97,8 +97,45 @@ function _getNotes() {
                     { txt: 'Coding power', doneAt: 187111111 }
                 ]
             },
+        },
+        {
+            id: 'n104',
+            type: 'NoteTxt',
+            isPinned: false,
+            style: {
+                backgroundColor: 'white'
+            },
+            info: {
+                title: 'Note 4',
+                txt: utilService.makeLorem(30),
+            },
+        },
+        {
+            id: 'n105',
+            type: 'NoteTxt',
+            isPinned: false,
+            style: {
+                backgroundColor: 'lightgreen'
+            },
+            info: {
+                title: 'Note 5',
+                txt: utilService.makeLorem(50),
+            },
+        },
+        {
+            id: 'n106',
+            type: 'NoteTxt',
+            isPinned: false,
+            style: {
+                backgroundColor: 'lightseagreen'
+            },
+            info: {
+                title: 'Note 6',
+                txt: utilService.makeLorem(26),
+            },
+        },
 
-        }
+
     ]
     return notes;
 }
