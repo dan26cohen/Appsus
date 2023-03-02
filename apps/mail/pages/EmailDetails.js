@@ -8,7 +8,7 @@ export default {
             <p>{{email.body}}</p>
             <!-- <button @click="delete">x</button> -->
             <!-- <button @click="delete">delete</button> -->
-            <button @click="deleteEmail" className="delete"><i class="fa-regular fa-trash-can"></i></button>
+            <!-- <button @click="deleteEmail" className="delete"><i class="fa-regular fa-trash-can"></i></button> -->
         </section>
     `,
     data() {
@@ -30,7 +30,9 @@ export default {
             console.log('hey');
             EmailService.get(this.email.id)
                 .then(email => {
-                    email.removedAt = 112334
+                    email.removedAt = Date.now()
+                    email.status = 'trash'
+                    console.log(email);
                    
                 }
                 )

@@ -19,6 +19,9 @@
     cursor: pointer;
     width: 100%;
     height: 6%;
+    display: flex;
+    gap: 11px;
+
 }
 
 .folder-h1:hover{
