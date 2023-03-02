@@ -17,6 +17,7 @@
 @import 'apps/mail/EmailIndex.css';
 @import 'apps/mail/EmailList.css';
 @import 'apps/mail/EmailPreview.css';
+@import 'apps/mail/EmailCompose.css';
 @import 'apps/mail/FolderList.css';
 @import 'apps/mail/EmailDetails.css';
 

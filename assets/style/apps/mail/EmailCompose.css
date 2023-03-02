@@ -1,0 +1,15 @@
+.compose{
+    background-color: rgb(174, 166, 166);
+    position: absolute;
+    bottom: 100px;
+}
+
+.compose-header{
+    display: flex;
+    justify-content: space-between;
+    background-color: aliceblue;
+}
+
+.compose-text{
+    display: flex;
+}
