@@ -126,7 +126,9 @@ function addNewNote(txt, title) {
 function paintNote(noteId, color) {
     return storageService.query(NOTES_KEY).then((notes => {
         const idx = notes.findIndex(note => note.id === noteId)
+        console.log('noteId,color', noteId, color)
         notes[idx].style.backgroundColor = color
         return storageService.put(NOTES_KEY, notes[idx])
     }))
 }
+
