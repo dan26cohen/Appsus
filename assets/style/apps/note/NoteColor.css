@@ -1,17 +1,19 @@
 .color-modal {
     position: absolute;
+    margin-right: 50px;
     background-color: white;
     padding: 10px;
     border-radius: 20px;
     box-sizing: border-box;
-    box-shadow: 1px 1px 1px black;
+    box-shadow: 1px 1px 3px black;
 }
 
+
 .color-ul {
+    justify-content: center;
     display: flex;
     margin: auto;
     padding: 0;
-    gap: 4px;
 }
 
 
@@ -20,10 +22,23 @@
     padding: 5px;
     border-radius: 50%;
     padding: 15px;
-    margin: auto;
 }
+
 
 .color-li:hover {
     opacity: 0.7;
     cursor: pointer;
+    box-shadow: 1px 1px 5px 0px rgb(0, 0, 0);
+}
+
+.exit-btn {
+    background-color: rgb(193, 193, 193);
+    color: rgb(255, 255, 255);
+    font-size: ;
+    padding: 5px 10px
+}
+
+.exit-btn:hover {
+    box-shadow: 1px 1px 1px 0px red;
+    color: red;
 }

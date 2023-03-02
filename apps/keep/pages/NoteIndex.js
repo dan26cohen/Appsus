@@ -8,8 +8,8 @@ export default {
     template: `
     <section class="notes-index" :class="{'edit-mode':isEditMode}">
         <form class="add-note-form" @submit.prevent="addNote">
-            <input placeholder="Title..." v-model="txt" type="text" class="add-title-input" >
-            <input placeholder="Take a note..." type="text" class="add-txt-input" v-model="title" >
+            <input placeholder="Title..." v-model="title" type="text" class="add-title-input" >
+            <input placeholder="Take a note..." type="text" class="add-txt-input" v-model="txt" >
             <button type="submit" class="add-btn" :class="{'edit-mode':isEditMode}">Add Note</button>
         </form>
         <NoteList :notes="notes" @update="updateNote" @duplicate="duplicateNote"

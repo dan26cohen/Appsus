@@ -12,7 +12,7 @@ export default {
             <li @click="setColor('lightcoral',note.id)" class="color-li" style="backgroundColor:lightcoral"></li>
             <li @click="setColor('lightblue',note.id)" class="color-li" style="backgroundColor:lightblue"></li>
             <li @click="setColor('purple',note.id)" class="color-li" style="backgroundColor:purple"></li>
-            <li @click="close" class="color-li">x</li>
+            <li @click="close" class="color-li exit-btn">x</li>
         </ul>
     </div>
 `,

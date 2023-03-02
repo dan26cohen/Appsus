@@ -16,16 +16,16 @@ export default {
                 <i title="Edit Note"@click="edit(note.id)" class="fa-regular fa-pen-to-square"></i>
             </div>
         </div>
-    </article>
-    <NoteColor :note="note" @paint="paint" v-if="isPainterOn" @close="closeModal"/>
-    <div class="edit-modal" :class="{'open':isEditMode}">
-        <input placeholder="Title..." type="text" class="add-title-input" v-model="note.info.title">
-        <input placeholder="Take a note..." type="text" class="add-txt-input"  v-model="note.info.txt">
-        <div class="edit-modal-btns">
-            <button @click="close">close</button>
-            <button @click="save(note.id)">save</button>
+        <NoteColor :note="note" @paint="paint" v-if="isPainterOn" @close="closeModal"/>
+        <div class="edit-modal" :class="{'open':isEditMode}">
+            <input placeholder="Title..." type="text" class="add-title-input" v-model="note.info.title">
+            <input placeholder="Take a note..." type="text" class="add-txt-input"  v-model="note.info.txt">
+            <div class="edit-modal-btns">
+                <button @click="close">close</button>
+                <button @click="save(note.id)">save</button>
+            </div>
         </div>
-    </div>
+    </article>
     `,
     data() {
         return {
