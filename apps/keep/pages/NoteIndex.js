@@ -7,14 +7,10 @@ export default {
     template: `
     <section class="notes-index" :class="{'edit-mode':isEditMode}">
         <form class="add-note-form" @submit.prevent="addNote">
-            <input placeholder="Title..." type="text" class="add-title-input" v-model="title">
-            <input placeholder="Take a note..." type="text" class="add-txt-input"  v-model="txt">
+            <input placeholder="Title..." v-model="txt" type="text" class="add-title-input" >
+            <input placeholder="Take a note..." type="text" class="add-txt-input" v-model="title" >
             <button type="submit" class="add-btn" :class="{'edit-mode':isEditMode}">Add Note</button>
         </form>
-        </div>
-
-
-        </div>
         <NoteList :notes="notes" @update="updateNote" @duplicate="duplicateNote"
         @blur="blurScreen" @remove="removeNote" @paint="paintNote"/>
     </section>`,
@@ -59,8 +55,9 @@ export default {
         },
         duplicateNote(noteId) {
             const idx = this.notes.findIndex(note => note.id === noteId)
-            const newNote = { ...this.notes[idx] }
+            const newNote = JSON.parse(JSON.stringify(this.notes[idx]));
             newNote.id = ''
+            console.log('newNote', newNote)
             this.notes.push(newNote)
             noteService.save(newNote)
                 .then(() => {
@@ -71,6 +68,7 @@ export default {
                 })
         },
         paintNote(noteId, color) {
+            debugger
             noteService.paintNote(noteId, color)
                 .then(() => {
                     console.log('note painted')

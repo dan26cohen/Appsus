@@ -1,9 +1,10 @@
 import { noteService } from '../services/note.service.js'
+import NoteColor from './NoteColor.js'
 
 export default {
     props: ['note'],
     template: `
-     <article class="note-preview"  @mouseover="showBtns=true" @mouseout="showBtns=false" :style="{backgroundColor: bgc}">
+     <article class="note-preview"  @mouseover="showBtns=true" @mouseout="showBtns=false">
         <div class="note-container">
             <h2> {{note.info.title}}  </h2>
             <p> {{note.info.txt}} </p>
@@ -14,6 +15,7 @@ export default {
                 <input type="color" v-model="bgc">
                 <a @click="edit(note.id)">Edit Note </a>
             </div>
+            <NoteColor @color="paintNote"/>
         </div>
     </article>
     <div class="edit-modal" :class="{'open':isEditMode}">
@@ -31,9 +33,6 @@ export default {
         }
     },
     methods: {
-        remove(noteId) {
-            this.$emit('remove', noteId)
-        },
         edit(noteId) {
             this.isEditMode = true
             this.$emit('blur')
@@ -41,17 +40,27 @@ export default {
         close() {
             this.isEditMode = false
         },
+        paintNote(color) {
+            this.$emit('paint', color)
+        }
+
+
+    },
+    computed: {
+        duplicate(noteId) {
+            this.$emit('duplicate', noteId)
+        },
         save(noteId) {
             this.$emit('save', noteId)
         },
-        duplicate(noteId) {
-            this.$emit('duplicate', noteId)
-        }
+        remove(noteId) {
+            this.$emit('remove', noteId)
+        },
     },
-
-
-
-    computed: {
-
+    created() {
+        console.log('this.note', this.note)
+    },
+    components: {
+        NoteColor,
     }
 }

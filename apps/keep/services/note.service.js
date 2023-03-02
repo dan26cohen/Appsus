@@ -106,7 +106,7 @@ function getEmptyNote(txt, title) {
         type: 'NoteTxt',
         isPinned: true,
         style: {
-            backgroundColor: 'lime',
+            backgroundColor: 'white',
         },
         info: {
             title,
