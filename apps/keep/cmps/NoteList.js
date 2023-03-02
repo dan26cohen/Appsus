@@ -4,10 +4,10 @@ import { noteService } from '../services/note.service.js'
 export default {
     props: ['notes'],
     template: `
-     <section class="note-list-container">
+     <section class="note-list-container" :class="{'blur':isEditMode}">
             <ul class="note-list">
                 <li v-for="note in notes" :key="note.id" class="note-li" :style="{'background-color': note.style?.backgroundColor || white}" @click="selectNote(note.id)" >
-                    <NotePreview  :note="note" @remove=remove(note.id)  @paint=paint
+                    <NotePreview  :note="note" @remove=remove(note.id)  @paint=paint @blur='blurScreen'
                     @save="update(note.id)"  @duplicate="duplicateNote(note.id)"/>
                 </li>
             </ul>
@@ -15,6 +15,7 @@ export default {
     data() {
         return {
             selectedNote: null,
+            isEditMode: false,
         }
     },
     methods: {
@@ -35,7 +36,10 @@ export default {
         },
         paint() {
             this.$emit('paint')
-        }
+        },
+        blurScreen() {
+            this.isEditMode = true
+        },
 
     },
     components: {

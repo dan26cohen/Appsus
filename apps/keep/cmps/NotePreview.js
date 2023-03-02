@@ -4,8 +4,8 @@ import NoteColor from './NoteColor.js'
 export default {
     props: ['note'],
     template: `
-     <article class="note-preview" @mouseover="showBtns=true" @mouseout="showBtns=false">
-        <div class="note-container">
+     <article class="note-preview" @mouseover="showBtns=true" @mouseout="showBtns=false" >
+        <div class="note-container" >
             <h2> {{note.info.title}}  </h2>
             <p> {{note.info.txt}} </p>
             
