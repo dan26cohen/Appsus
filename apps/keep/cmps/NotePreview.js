@@ -12,10 +12,9 @@ export default {
             <div class="note-btns" :class="{'show': showBtns}">
                 <i title="Delete" class="fa-regular fa-trash-can" @click="remove(note.id)" class="close-note-btn"></i>
                 <i title="Duplicate Note" @click="duplicate(note.id)"  class="fa-regular fa-clone"></i>
-                <input type="color" v-model="bgc">
                 <a @click="edit(note.id)">Edit Note </a>
             </div>
-            <NoteColor @color="paintNote"/>
+            <NoteColor :note="note" @paint="paint"/>
         </div>
     </article>
     <div class="edit-modal" :class="{'open':isEditMode}">
@@ -28,7 +27,7 @@ export default {
     data() {
         return {
             showBtns: false,
-            bgc: '',
+            selectedBgc: '',
             isEditMode: false,
         }
     },
@@ -40,27 +39,32 @@ export default {
         close() {
             this.isEditMode = false
         },
-        paintNote(color) {
+        duplicate() {
+            this.$emit('duplicate')
+        },
+        save() {
+            this.$emit('save')
+        },
+        remove() {
+            this.$emit('remove')
+        },
+        paint(color) {
             this.$emit('paint', color)
         }
 
 
     },
     computed: {
-        duplicate(noteId) {
-            this.$emit('duplicate', noteId)
-        },
-        save(noteId) {
-            this.$emit('save', noteId)
-        },
-        remove(noteId) {
-            this.$emit('remove', noteId)
-        },
+
+
+
+
     },
     created() {
         console.log('this.note', this.note)
     },
     components: {
         NoteColor,
+        noteService,
     }
 }
