@@ -6,3 +6,13 @@
 ul li{
     list-style: none;
 }
+
+.back-btn{
+    background-color: rgba(173, 216, 230, 0.527);
+    border: none;
+    border-radius: 19px;
+    height: 3vh;
+    width: 5vw;
+    min-width: 30px;
+    min-height: 40px;
+}

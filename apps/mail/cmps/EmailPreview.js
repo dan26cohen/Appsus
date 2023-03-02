@@ -2,9 +2,9 @@ export default {
     props: ['email'],
     template: `
         <div class="email-preview" :class="email.isRead ? 'read' : 'unRead' ">
-            <h1 :class="email.isRead ? '' : 'unRead' ">{{ email.from}}</h1>
-            <h1 :class="email.isRead ? '' : 'unRead' ">{{ email.subject}}</h1>
-            <p :class="email.isRead ? '' : 'unRead' " >{{ email.body}}</p>
+            <h1 style="font-family:'Roboto';" :class="email.isRead ? '' : 'unRead' ">{{ email.from}}</h1>
+            <h1 style="font-family:'Roboto';" :class="email.isRead ? '' : 'unRead' ">{{ email.subject}}</h1>
+            <p style="font-family:'Roboto';" :class="email.isRead ? '' : 'unRead' " >{{ email.body}}</p>
             <div class="end-prev" style="margin-left: auto">
                 <button @click="deleteEmail" className="delete-btn"><i class="fa-regular fa-trash-can"></i></button>
                 <button  className="delete-btn"><i class="fa-sharp fa-regular fa-envelope"></i></button>

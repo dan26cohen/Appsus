@@ -18,7 +18,7 @@ export default {
         </ul>
         <section>
                 <EmailDetails :email="selectedEmail" v-if="detailsIsShown" />
-                <button @click="toggleExit" v-if="detailsIsShown" >back to list</button>
+                <button class="back-btn" @click="toggleExit" v-if="detailsIsShown" >back to list</button>
 
             </section>
         </section>
@@ -38,10 +38,12 @@ export default {
             this.detailsIsShown = !this.detailsIsShown
         },
         toggleExit(){
+      
             this.listIsShown = !this.listIsShown
             this.detailsIsShown = !this.detailsIsShown
         },
         deleteEmail(email){
+     
             this.listIsShown = !this.listIsShown
             this.detailsIsShown = !this.detailsIsShown
             this.$emit('deleteEmail',email)

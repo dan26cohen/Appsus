@@ -3,12 +3,11 @@ export default {
     props: ['email'],
     template: `
         <section class="email-details" v-if="email">
-            <h1 class="email-sender"> from : {{email.from}}</h1>
-            <h1>{{email.subject}}</h1>
-            <p>{{email.body}}</p>
-            <!-- <button @click="delete">x</button> -->
-            <!-- <button @click="delete">delete</button> -->
-            <!-- <button @click="deleteEmail" className="delete"><i class="fa-regular fa-trash-can"></i></button> -->
+            <div class="head">
+                <h1 style="font-size: 0.8em" class="email-sender"> from : {{email.from}}</h1>
+                <h1 style="font-size: 1em" >{{email.subject}}</h1>
+            </div>
+            <p style="font-size: 1em">{{email.body}}</p>
         </section>
     `,
     data() {
