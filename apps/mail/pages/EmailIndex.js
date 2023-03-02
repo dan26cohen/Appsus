@@ -6,13 +6,14 @@ import EmailFolderList from '../cmps/EmailFolderList.js'
 export default {
     template: `
     <Section class="email-index">
-        <EmailFilter class="search" @addEmail="addEmail" @filter="setFilterBy"/>
+        <EmailFilter  class="search" @addEmail="addEmail" @filter="setFilterBy"/>
         <div class="list-container">
             <EmailFolderList :unReadCount="unReadCount" @folderFilter='folderFilter'/>
             <EmailList
                     :emails="filteredEmails" 
                     @readEmail="readEmail"
                     @deleteEmail="deleteEmail"
+
             />
         </div>
 
@@ -26,7 +27,8 @@ export default {
             emails: null,
             selectedEmail: null,
             filterBy: { status: 'inbox' },
-            unReadCount: null
+            unReadCount: null,
+       
         }
     },
     computed: {
@@ -36,17 +38,20 @@ export default {
             const regex = new RegExp(this.filterBy.title, 'i')
             emails = emails.filter(email => regex.test(email.subject))
             emails = emails.filter(email => email.status === this.filterBy.status)
+            console.log(this.filterBy.status);
+            console.log(this.emails[5].status);
             return emails
         }
     },
     methods: {
         setFilterBy(filterBy) {
-            this.filterBy = filterBy
+            this.filterBy = {...this.filterBy , ...filterBy}
         },
         folderFilter(filter) {
             this.filterBy.status = filter
         },
         readEmail(email) {
+            this.searchDisplay = false
             let emails = EmailService.readEmail(email)
             this.emails = emails
             const unReadMails = emails.filter(email => (email.isRead === false && email.status === 'inbox'))
@@ -59,9 +64,12 @@ export default {
         },
         addEmail(email) {
             EmailService.addEmail(email).then(newEmail => {
-                this.emails.push(newEmail)
+                this.emails.unshift(newEmail)
+                this.unReadCount++
+         
             })
-        }
+        },
+     
 
     },
     created() {

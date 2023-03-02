@@ -1,11 +1,12 @@
 .email-details{
-    background-color:rgb(250, 245, 245);
+    background-color:#f2f6fc;
     display: flex;
     height: 100%;
     width: 80vw;
-    justify-content: center;
     flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
+    align-items: flex-start;
 }
 .email-sender{
     margin-right: auto;

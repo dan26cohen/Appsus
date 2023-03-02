@@ -38,6 +38,7 @@ export default {
         sendEmail() {
             console.log(this.email);
             this.$emit('addEmail', this.email)
+            this.$emit('close')
 
         }
     }

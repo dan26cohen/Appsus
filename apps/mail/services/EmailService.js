@@ -183,7 +183,9 @@ function deleteEmail(email) {
 }
 
 function addEmail(email) {
-    email.subject = 'inbox'
+    email.status = 'inbox'
+    email.sentAt = Date.now()
+    email.from = 'ממני'
     email.isRead = false
     return storageService.post(EMAIL_KEY, email)
         .then(email => {
