@@ -11,6 +11,7 @@ export const noteService = {
     save,
     addNewNote,
     getEmptyNote,
+    paintNote,
 }
 _createNotes()
 
@@ -60,7 +61,7 @@ function _getNotes() {
             type: 'NoteTxt',
             isPinned: true,
             style: {
-                backgroundColor: '#00d'
+                backgroundColor: 'yellow'
             },
             info: {
                 title: 'Note 1',
@@ -104,7 +105,7 @@ function getEmptyNote(txt, title) {
         type: 'NoteTxt',
         isPinned: true,
         style: {
-            backgroundColor: 'gray'
+            backgroundColor: 'lime',
         },
         info: {
             title,
@@ -118,5 +119,13 @@ function addNewNote(txt, title) {
     return storageService.query(NOTES_KEY).then((notes => {
         const newNote = getEmptyNote(txt, title)
         return storageService.post(NOTES_KEY, newNote)
+    }))
+}
+
+function paintNote(noteId, color) {
+    return storageService.query(NOTES_KEY).then((notes => {
+        const idx = notes.findIndex(note => note.id === noteId)
+        notes[idx].style.backgroundColor = color
+        return storageService.put(NOTES_KEY, notes[idx])
     }))
 }
