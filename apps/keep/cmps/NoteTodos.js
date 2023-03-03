@@ -1,6 +1,6 @@
 export default {
-    props: ['info'],
-    template: `
+  props: ['info'],
+  template: `
     <div class="note-todos">
         <div>
             <h2>{{ info.title }}</h2>
@@ -15,22 +15,22 @@ export default {
   </div>
     `,
 
-    data() {
-        return {
+  data() {
+    return {
 
-        }
-    },
-    methods: {
+    }
+  },
+  methods: {
 
-    },
-    computed: {
+  },
+  computed: {
 
-    },
-    created() {
+  },
+  created() {
 
-    },
-    components: {
+  },
+  components: {
 
-    },
-    emits: [],
+  },
+  emits: [],
 }

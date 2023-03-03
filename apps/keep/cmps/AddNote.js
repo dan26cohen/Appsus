@@ -1,5 +1,4 @@
 import { noteService } from '../services/note.service.js'
-import { utilService } from '../../../services/util.service.js'
 
 export default {
     props: ['notes'],
@@ -21,9 +20,9 @@ export default {
                         <i class="fa-regular fa-image"></i>
                     </button>
                 </div>
-                <!-- v-if="type === 'NoteTodos' -->
+                <!--  -->
             </div> 
-                    <div class="todos-container" >
+                    <div class="todos-container" v-if="type === 'NoteTodos'">
                          <label>Todo Items:</label>
                          <div class="todo-list" v-for="(item, idx) in todoItems" :key="idx">
                             <input class="check-box-td"  type="checkbox" v-model="item.doneAt">
@@ -58,8 +57,13 @@ export default {
                 url: this.imgUrl,
             }
             noteService.addNewNote(newNote)
-                .then(() => console.log('note added'))
                 .then(() => this.$emit('addNote', newNote))
+                .then(() => {
+                    this.title = ''
+                    this.txt = ''
+                    this.todoItems = [{ txt: '', doneAt: null }, { txt: '', doneAt: null }]
+                    this.imgUrl = ''
+                })
         },
         setNoteType(type) {
             this.type = type
