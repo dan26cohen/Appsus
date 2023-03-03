@@ -1,0 +1,18 @@
+.home-page {
+    height: 70vh;
+    text-align: center;
+}
+
+.home-page h1 {
+    font-size: 40px;
+}
+
+.home-menu img {
+    width: 300px;
+}
+
+.home-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

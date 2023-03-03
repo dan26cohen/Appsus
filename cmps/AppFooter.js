@@ -1,7 +1,7 @@
 export default {
-	template: `
+    template: `
         <footer class="app-footer">
-            <p>&copy; Coffeerights</p>
+            <p>&copy;All Rights Reserved</p>
         </footer>
     `,
 }

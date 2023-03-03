@@ -15,10 +15,12 @@
 .todo-remove-btn {
     border-radius: 50%;
     border: none;
+    padding: 0px 5px;
     background-color: white;
     color: rgb(185, 185, 185);
     float: right;
     font-size: 1em;
+    font-family: cursive;
 }
 
 .todo-remove-btn:hover {
