@@ -1,4 +1,5 @@
 import { noteService } from '../services/note.service.js'
+import { EmailService } from '../../../apps/mail/services/EmailService.js'
 import NoteColor from './NoteColor.js'
 import NoteTxt from './NoteTxt.js'
 import NoteTodos from './NoteTodos.js'
@@ -17,6 +18,7 @@ export default {
                 <i title="Paint Note" class="fa-solid fa-paintbrush" @click="togglePainter"></i>
                 <i title="Edit Note"@click="edit(note.id)" class="fa-regular fa-pen-to-square"></i>
                 <i title="Edit Note"@click="edit(note.id)" class="fa-regular fa-pen-to-square"></i>
+                <i title="Send As Email" @click="sendAsEmail(note)" class="fa-regular fa-pen-to-square"></i>
             </div>
         </div>
         <NoteColor :note="note" @paint="paint" v-if="isPainterOn" @close="closeModal"/>
@@ -65,9 +67,14 @@ export default {
         closeModal() {
             this.isPainterOn = false;
         },
-        updateNote() {
-
-        },
+        sendAsEmail(note) {
+            const email = {
+                subject: note.info.title,
+                body: note.info.txt
+            }
+            console.log('email', email)
+            EmailService.addEmail(email)
+        }
     },
     computed: {
 

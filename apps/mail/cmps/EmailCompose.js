@@ -1,5 +1,5 @@
 import { noteService } from '../../../apps/keep/services/note.service.js'
-import { utilService } from '../../../services/util.service'
+import { utilService } from '../../../services/util.service.js'
 
 export default {
     props: [''],
@@ -43,23 +43,23 @@ export default {
             this.$emit('addEmail', this.email)
             this.$emit('close')
 
-           
+
         },
-        sendNote(){
+        sendNote() {
             const note = {
                 type: 'NoteTxt',
-                isPinned:false,
+                isPinned: false,
                 info: {
                     title: this.email.subject,
                     txt: this.email.body,
                 },
-                style:{
-                    backgroundColor:'red'
+                style: {
+                    backgroundColor: 'red'
                 },
                 createdAt: utilService.getCurrDate()
-                
+
             }
-   
+
             noteService.addNewNote(note)
         }
     }
