@@ -11,7 +11,7 @@ export default {
 
                 <li v-for="email in emails" :key="email.id">
                     <div>
-                    <EmailPreview @deleteEmail="deleteEmail"  @click="toggle(email)" :email="email" v-if=" listIsShown"/>
+                    <EmailPreview @deleteEmail="deleteEmail"  @toggle="toggle(email)" :email="email" v-if=" listIsShown"/>
                 </div>
                 
             </li>
@@ -44,8 +44,8 @@ export default {
         },
         deleteEmail(email){
      
-            this.listIsShown = !this.listIsShown
-            this.detailsIsShown = !this.detailsIsShown
+            // this.listIsShown = !this.listIsShown
+            // this.detailsIsShown = !this.detailsIsShown
             this.$emit('deleteEmail',email)
         }
     },
