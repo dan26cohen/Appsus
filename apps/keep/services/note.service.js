@@ -215,7 +215,7 @@ function _getDemoData() {
             },
         },
         {
-            id: 'n1012',
+            id: 'n1052',
             type: 'NoteTxt',
             isPinned: false,
             style: {
@@ -227,7 +227,7 @@ function _getDemoData() {
             },
         },
         {
-            id: 'n1012',
+            id: 'n203495',
             type: 'NoteTxt',
             isPinned: false,
             style: {
