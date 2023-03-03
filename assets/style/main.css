@@ -31,3 +31,4 @@
 @import 'apps/note/NoteList.css';
 @import 'apps/note/NoteEdit.css';
 @import 'apps/note/NoteColor.css';
+@import 'apps/note/mq/Note.mq.css';
