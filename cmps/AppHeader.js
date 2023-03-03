@@ -8,12 +8,12 @@ export default {
                 <div v-if="isShown" class="links-container">
            <div class="logos-container">
            <router-link @click="isShown=!isShown" to="/email"><img class="logo-btn"src="../img/Gmail-logo.png"></router-link>
-           <router-link @click="isShown=!isShown" to="/notes"><img class="logo-btn"src="../img/notes.png"></router-link>
+           <router-link @click="isShown=!isShown" to="/notes"><img class="logo-btn"src="../img/google.keep.logo.png"></router-link>
 
            </div>
            <div class="logos-container">
 
-             <router-link @click="isShown=!isShown" to="/about"><img class="logo-btn"src="../img/about.png"></router-link>
+             <router-link @click="isShown=!isShown" to="/about"><img class="logo-btn"src="../img/about-3.png"></router-link>
              <router-link @click="isShown=!isShown" to="/book"><img class="logo-btn"src="../img/books.png">
                    
            </div>
