@@ -61,6 +61,9 @@ export default {
         setNoteType(type) {
             console.log('type', type)
             this.noteType = type
+        },
+        addNote(newNote) {
+            this.notes.push(newNote)
         }
     },
 

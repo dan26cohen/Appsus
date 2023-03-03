@@ -1,4 +1,3 @@
-//v-if="type === 'NoteTodos'
 import { noteService } from '../services/note.service.js'
 import { utilService } from '../../../services/util.service.js'
 
@@ -23,7 +22,7 @@ export default {
                     </button>
                 </div>
             </div>
-                    <div class="todos-container">
+                    <div class="todos-container" v-if="type === 'NoteTodos'">
                          <label>Todo Items:</label>
                          <div v-for="(item, idx) in todoItems" :key="idx">
                          <input  type="checkbox" v-model="item.doneAt">
@@ -58,6 +57,7 @@ export default {
             }
             noteService.addNewNote(newNote)
                 .then(() => console.log('note added'))
+                .then(() => this.$emit('addNote', newNote))
         },
         setNoteType(type) {
             this.type = type
