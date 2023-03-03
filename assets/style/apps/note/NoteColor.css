@@ -7,9 +7,6 @@
     box-shadow: 1px 1px 3px black;
 }
 
-
-
-
 .color-ul {
     justify-content: center;
     display: flex;
@@ -32,6 +29,7 @@
 }
 
 .exit-btn {
+    position: relative;
     background-color: rgb(193, 193, 193);
     color: rgb(255, 255, 255);
     padding: 5px 10px

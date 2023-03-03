@@ -17,8 +17,7 @@ export default {
                 <i title="Duplicate Note" @click="duplicate(note.id)"  class="fa-regular fa-clone"></i>
                 <i title="Paint Note" class="fa-solid fa-paintbrush" @click="togglePainter"></i>
                 <i title="Edit Note"@click="edit(note.id)" class="fa-regular fa-pen-to-square"></i>
-                <i title="Edit Note"@click="edit(note.id)" class="fa-regular fa-pen-to-square"></i>
-                <i title="Send As Email" @click="sendAsEmail(note)" class="fa-regular fa-pen-to-square"></i>
+                <i title="Send As Email" @click="sendAsEmail(note)" class="fa-solid fa-at"></i>
             </div>
         </div>
         <NoteColor :note="note" @paint="paint" v-if="isPainterOn" @close="closeModal"/>

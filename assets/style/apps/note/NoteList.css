@@ -1,11 +1,9 @@
 .note-list-container ul {
     font-family: Roboto;
     color: black;
-    columns: 250px;
+    columns: 300px 5;
     column-gap: 1em;
 }
-
-
 
 .note-li {
     margin: 0;
