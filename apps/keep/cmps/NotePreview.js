@@ -16,14 +16,23 @@ export default {
                 <i title="Delete" class="fa-regular fa-trash-can" @click="remove(note.id)" class="close-note-btn"></i>
                 <i title="Duplicate Note" @click="duplicate(note.id)"  class="fa-regular fa-clone"></i>
                 <i title="Paint Note" class="fa-solid fa-paintbrush" @click="togglePainter"></i>
-                <i title="Edit Note"@click="edit(note.id)" class="fa-regular fa-pen-to-square"></i>
+                <i title="Edit Note"@click="edit(note)" class="fa-regular fa-pen-to-square"></i>
                 <i title="Send As Email" @click="sendAsEmail(note)" class="fa-solid fa-at"></i>
             </div>
         </div>
+
         <NoteColor :note="note" @paint="paint" v-if="isPainterOn" @close="closeModal"/>
-        <div class="edit-modal" :class="{'open':isEditMode}">
+
+        <div class="edit-modal" :class="{'open':isEditModalOpen}">
             <input placeholder="Title..." type="text" class="add-title-input" v-model="note.info.title">
-            <input placeholder="Take a note..." type="text" class="add-txt-input"  v-model="note.info.txt">
+            <input placeholder="Take a note..." type="text" class="add-txt-input" v-model="note.info.txt">
+            <ul class="todo-ul">
+                <li v-for="(todo, index) in note.info.todos" :key="index">
+                    <input type="checkbox" v-model="todo.doneAt" />
+                    <span class="todos-txt" :class="{ done: todo.doneAt }">{{ todo.txt }}</span>
+                </li>
+            </ul>
+            <img :src="note.info.url" class="edit-modal-img" :class="{'hide': !note.info.url }">
             <div class="edit-modal-btns">
                 <button @click="close">close</button>
                 <button @click="save(note.id)">save</button>
@@ -37,15 +46,18 @@ export default {
             selectedBgc: '',
             isEditMode: false,
             isPainterOn: false,
+            isEditModalOpen: false,
         }
     },
     methods: {
-        edit(noteId) {
+        edit(note) {
             this.isEditMode = true
-            this.$emit('blur')
+            this.isEditModalOpen = true
+            this.$emit('edit', note)
         },
         close() {
             this.isEditMode = false
+            this.isEditModalOpen = false
         },
         duplicate() {
             this.$emit('duplicate')
@@ -53,6 +65,7 @@ export default {
         save() {
             this.$emit('save')
             this.isEditMode = false;
+            this.isEditModalOpen = false;
         },
         remove() {
             this.$emit('remove')

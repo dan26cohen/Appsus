@@ -9,7 +9,7 @@ export default {
     <ul class="todo-ul">
       <li v-for="(todo, index) in info.todos" :key="index">
         <input type="checkbox" v-model="todo.doneAt" />
-        <span :class="{ done: todo.doneAt }">{{ todo.txt }}</span>
+        <span class="todos-txt" :class="{ done: todo.doneAt }">{{ todo.txt }}</span>
       </li>
     </ul>
   </div>

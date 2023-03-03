@@ -37,6 +37,10 @@
     padding: 5px;
 }
 
+.note-type-btns.open {
+    float: left;
+}
+
 .note-type-btns i {
     font-size: 1.5em;
 }
@@ -44,4 +48,33 @@
 .note-type-btns:hover {
     opacity: 0.7;
 
+}
+
+
+.add-title-input.open {
+    display: block;
+}
+
+.add-note-btn {
+    display: none;
+    float: right;
+    padding: 5px;
+    font-size: 1.2em;
+    background-color: white;
+    border: 1px lightgray solid;
+    border-radius: 20px;
+}
+
+.add-note-btn.open {
+    display: block;
+}
+
+.add-note-btn:hover {
+    background-color: lightseagreen;
+    color: white;
+}
+
+.upload-img-input {
+    border: 1px lightgray solid;
+    background-color: white;
 }

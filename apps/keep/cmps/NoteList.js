@@ -7,7 +7,7 @@ export default {
      <section class="note-list-container" :class="{'blur':isEditMode}">
             <ul class="note-list">
                 <li v-for="note in notes" :key="note.id" class="note-li" :style="{'background-color': note.style?.backgroundColor || white}" @click="selectNote(note.id)" >
-                    <NotePreview  :note="note" @remove=remove(note.id)  @paint=paint @blur='blurScreen'
+                    <NotePreview  :note="note" @remove=remove(note.id)  @paint=paint @edit='edit'
                     @save="update(note.id)"  @duplicate="duplicateNote(note.id)"/>
                 </li>
             </ul>
@@ -37,7 +37,7 @@ export default {
         paint() {
             this.$emit('paint')
         },
-        blurScreen() {
+        edit(note) {
             this.isEditMode = true
         },
 

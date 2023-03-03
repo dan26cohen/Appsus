@@ -5,21 +5,19 @@
     border-radius: 20px;
     box-sizing: border-box;
     box-shadow: 1px 1px 3px black;
+    padding: 20px;
 }
 
 .color-ul {
-    justify-content: center;
     display: flex;
-    margin: auto;
     padding: 0;
 }
 
 
 .color-li {
     background-color: white;
-    padding: 5px;
     border-radius: 50%;
-    padding: 15px;
+    padding: 5px 20px;
 }
 
 
@@ -36,19 +34,6 @@
 }
 
 .exit-btn:hover {
-    box-shadow: 1px 1px 1px 0px red;
+    box-shadow: 1px 1px 1px 0px rgb(196, 196, 196);
     color: red;
-}
-
-.add-note-btn {
-    float: right;
-    background-color: white;
-    border: 1px lightgray solid;
-    border-radius: 20px;
-}
-
-.add-note-btn:hover {
-    background-color: lightseagreen;
-    color: white;
-    transition: 0.3s;
 }

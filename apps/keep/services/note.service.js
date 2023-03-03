@@ -38,7 +38,6 @@ function remove(noteId) {
 }
 
 function save(note) {
-    debugger
     if (note.id) {
         return storageService.put(NOTES_KEY, note)
     } else {

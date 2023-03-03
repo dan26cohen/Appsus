@@ -3,8 +3,9 @@ import { noteService } from '../services/note.service.js'
 export default {
     props: ['notes'],
     template: ` 
-    <form class="add-note-form">
-            <input placeholder="Title..." v-model="title" type="text" :class="{'hide':isEditorOn}" class="add-title-input" >
+    <form class="add-note-form" @click="setEditOn">
+            <input placeholder="Title..." v-model="title" type="text" 
+            class="add-title-input" :class="{'open':isEditorOn}"  >
             <div class="add-note-shown">
                 <input placeholder="Take a note..." type="text" class="add-txt-input" v-model="txt" >
                 <div class="editor-container">
@@ -20,24 +21,26 @@ export default {
                         <i class="fa-regular fa-image"></i>
                     </button>
                 </div>
-                <!--  -->
             </div> 
-                    <div class="todos-container" v-if="type === 'NoteTodos'">
-                         <label>Todo Items:</label>
-                         <div class="todo-list" v-for="(item, idx) in todoItems" :key="idx">
-                            <input class="check-box-td"  type="checkbox" v-model="item.doneAt">
-                            <input placeholder="Your Task Here..." class="todo-input" type="text" v-model="item.txt" :class="{ done: item.doneAt }">
-                            <button class="todo-remove-btn" @click="removeTodoItem(idx)">x</button>
-                        </div>
-                        <div>
-                            <button class="add-td-btn" @click="addTodoItem">+</button>
-                        </div>
+            <div class="todos-container" v-if="type === 'NoteTodos'">
+                <label>Todo Items:</label>
+                    <div class="todo-list" v-for="(item, idx) in todoItems" :key="idx">
+                        <input class="check-box-td"  type="checkbox" v-model="item.doneAt">
+                        <input placeholder="Your Task Here..." class="todo-input" type="text" v-model="item.txt" :class="{ done: item.doneAt }">
+                        <button class="todo-remove-btn" @click="removeTodoItem(idx)">x</button>
+                    </div>
+                    <div>
+                        <button class="add-td-btn" @click="addTodoItem">+</button>
+                    </div>
                     </div>
                     <div class="note-img-container" v-if="type === 'NoteImg'">
                         <input class="upload-img-input" type="file" @change="onImgUpload">
                         <img :src="imgUrl">
                     </div>
-            <button type="submit" @click="addNote" class="add-note-btn">Save</button>
+                    <div>
+                        <button type="submit" @click="addNote" class="add-note-btn" :class="{'open':isEditorOn}">Save</button>
+                    </div>
+            </div>
     </form>`,
 
     data() {
@@ -90,15 +93,17 @@ export default {
                 console.log('this.imgUrl', this.imgUrl)
             }
         },
-        computed: {
-
+        setEditOn() {
+            this.isEditorOn = true
         },
-        created() {
+    },
+    computed: {
 
-        },
-        components: {
+    },
+    created() {
 
-        },
-        emits: [],
-    }
+    },
+    components: {
+    },
+    emits: [],
 }

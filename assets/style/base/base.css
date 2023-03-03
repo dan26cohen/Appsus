@@ -20,7 +20,7 @@ h6 {
   font-family: Roboto, sans-serif;
 }
 
-ul{
+ul {
   padding: 0;
 }
 
@@ -54,4 +54,8 @@ button:hover {
 /* Simple and useful CSS Debugging Technique */
 .debug * {
   outline: 1px solid gold
+}
+
+input[type=file] {
+  color: transparent;
 }

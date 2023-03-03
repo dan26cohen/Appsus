@@ -47,3 +47,7 @@
     background-color: rgb(156, 154, 154);
     color: white;
 }
+
+.todos-txt {
+    font-size: 0.8em;
+}

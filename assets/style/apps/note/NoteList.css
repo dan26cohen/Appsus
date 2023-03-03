@@ -1,11 +1,17 @@
+.note-list-container {
+    padding: 30px;
+}
+
 .note-list-container ul {
     font-family: Roboto;
     color: black;
     columns: 300px 5;
     column-gap: 1em;
+    font-size: 1.3em;
 }
 
 .note-li {
+    padding: 1px;
     margin: 0;
     margin-right: 5px;
     display: grid;
@@ -16,6 +22,7 @@
     margin-block-end: 1em;
     break-inside: avoid;
 }
+
 
 .note-preview.hide {
     display: none;
