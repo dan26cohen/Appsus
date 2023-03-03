@@ -19,7 +19,7 @@ export default {
            </div>
 
                 </div>
-                <i style="scale:1.4;" @click="isShown=!isShown" class="fa-solid fa-bars"></i>
+                <i style="scale:1.4;" @click="isShown=!isShown" class="fa-solid fa-bars "></i>
                
                 </router-link>
             </nav>

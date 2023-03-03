@@ -45,8 +45,13 @@ nav {
   height: 6vh;
 }
 
-.fa-solid {
+.fa-bars {
   margin-right: 20px;
+  cursor: pointer;
+}
+
+.fa-bars:hover{
+opacity: 0.7;
 }
 
 @media(max-width: 720px) {
