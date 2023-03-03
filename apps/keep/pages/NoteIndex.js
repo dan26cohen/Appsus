@@ -1,38 +1,23 @@
 import { noteService } from '../services/note.service.js'
 import NoteFilter from '../cmps/NoteFilter.js'
 import NoteList from '../cmps/NoteList.js'
-
-
+import AddNote from '../cmps/AddNote.js'
 
 export default {
     template: `
-    <section class="notes-index" :class="{'edit-mode':isEditMode}">
-        <form class="add-note-form" @submit.prevent="addNote">
-            <input placeholder="Title..." v-model="title" type="text" class="add-title-input" >
-            <input placeholder="Take a note..." type="text" class="add-txt-input" v-model="txt" >
-            <button type="submit" class="add-btn" :class="{'edit-mode':isEditMode}">Add Note</button>
-        </form>
+    <section class="notes-index">
+        <AddNote :notes="notes" @setNoteType=setNoteType @addNote=addNote />
         <NoteList :notes="notes" @update="updateNote" @duplicate="duplicateNote"
-        @blur="blurScreen" @remove="removeNote" @paint="paint"/>
+         @remove="removeNote" @paint="paint"/>
     </section>`,
 
     data() {
         return {
-            txt: '',
-            title: '',
-            isEditMode: false,
+            noteType: 'NoteTxt',
             notes: [],
         }
     },
     methods: {
-        addNote() {
-            noteService.addNewNote(this.txt, this.title).then(note => {
-                console.log('note added', note)
-                this.notes.push(note)
-                console.log('this.notes', this.notes)
-            })
-
-        },
         removeNote(noteId) {
             noteService.remove(noteId)
                 .then(() => {
@@ -68,13 +53,14 @@ export default {
                     console.log('note not saved')
                 })
         },
-        blurScreen() {
-            this.isEditMode = true
-        },
         paint() {
             noteService.query()
                 .then(notes => this.notes = notes)
                 .catch('error paint')
+        },
+        setNoteType(type) {
+            console.log('type', type)
+            this.noteType = type
         }
     },
 
@@ -89,6 +75,7 @@ export default {
     components: {
         NoteFilter,
         NoteList,
+        AddNote,
     },
     emits: [],
 }

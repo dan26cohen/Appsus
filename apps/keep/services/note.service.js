@@ -38,6 +38,7 @@ function remove(noteId) {
 }
 
 function save(note) {
+    debugger
     if (note.id) {
         return storageService.put(NOTES_KEY, note)
     } else {
@@ -49,12 +50,59 @@ function save(note) {
 function _createNotes() {
     let notes = utilService.loadFromStorage(NOTES_KEY)
     if (!notes || !notes.length) {
-        notes = _getNotes()
+        notes = _getDemoData()
         utilService.saveToStorage(NOTES_KEY, notes)
     }
 }
 
-function _getNotes() {
+
+
+function getEmptyNote() {
+    const note =
+    {
+        createdAt: utilService.getCurrDate(),
+        type: 'NoteTxt',
+        isPinned: true,
+        style: {
+            backgroundColor: 'white',
+        },
+        info: {
+            title: '',
+            txt: '',
+            todos: [{ txt: 'Driving license', doneAt: null }],
+            url: '',
+        }
+    }
+    return note
+}
+
+function addNewNote(newNote) {
+    return storageService.query(NOTES_KEY).then((notes => {
+        return save(newNote)
+    }))
+}
+
+function paintNote(noteId, color) {
+    return storageService.query(NOTES_KEY).then((notes => {
+        const idx = notes.findIndex(note => note.id === noteId)
+        console.log('color service', color)
+        notes[idx].style.backgroundColor = color
+        const newNote = JSON.parse(JSON.stringify(notes[idx]));
+        console.log('newNote', newNote)
+        return save(newNote)
+    }))
+}
+
+function getNoteById(noteId) {
+    return storageService.query(NOTES_KEY).then((notes => {
+        console.log('notes', notes)
+        const idx = notes.findIndex(note => note.id === noteId)
+        if (idx === -1) return
+        return notes[idx]
+    }))
+}
+
+function _getDemoData() {
     const notes = [
         {
             id: 'n101',
@@ -236,48 +284,3 @@ function _getNotes() {
     ]
     return notes;
 }
-
-function getEmptyNote(txt, title) {
-    const note =
-    {
-        createdAt: utilService.getCurrDate(),
-        type: 'NoteTxt',
-        isPinned: true,
-        style: {
-            backgroundColor: 'white',
-        },
-        info: {
-            title,
-            txt,
-        }
-    }
-    return note
-}
-
-function addNewNote(txt, title) {
-    return storageService.query(NOTES_KEY).then((notes => {
-        const newNote = getEmptyNote(txt, title)
-        return storageService.post(NOTES_KEY, newNote)
-    }))
-}
-
-function paintNote(noteId, color) {
-    return storageService.query(NOTES_KEY).then((notes => {
-        const idx = notes.findIndex(note => note.id === noteId)
-        console.log('color service', color)
-        notes[idx].style.backgroundColor = color
-        const newNote = JSON.parse(JSON.stringify(notes[idx]));
-        console.log('newNote', newNote)
-        return save(newNote)
-    }))
-}
-
-function getNoteById(noteId) {
-    return storageService.query(NOTES_KEY).then((notes => {
-        console.log('notes', notes)
-        const idx = notes.findIndex(note => note.id === noteId)
-        if (idx === -1) return
-        return notes[idx]
-    }))
-}
-
