@@ -14,12 +14,12 @@ export default {
            <div class="logos-container">
 
              <router-link @click="isShown=!isShown" to="/about"><img class="logo-btn"src="../img/about-3.png"></router-link>
-             <router-link @click="isShown=!isShown" to="/book"><img class="logo-btn"src="../img/books.png">
+             <router-link @click="isShown=!isShown" to="/book"><img class="logo-btn"src="../img/books.logo.png">
                    
            </div>
 
                 </div>
-                <i @click="isShown=!isShown" class="fa-solid fa-bars"></i>
+                <i style="scale:1.4" @click="isShown=!isShown" class="fa-solid fa-bars"></i>
                
                 </router-link>
             </nav>
