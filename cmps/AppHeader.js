@@ -3,15 +3,31 @@ export default {
         <header class="app-header">
             <nav >
                 <div class="logo">
-                    <h1>AppSus</h1>
+                <router-link to="/">  <h1>AppSus</h1></router-link>
                 </div>
-                <router-link to="/">Home</router-link>
-                <router-link to="/email"> <i class="fa-regular fa-envelope"></i></router-link>
-                <router-link to="/notes"><i class="fa-regular fa-note-sticky"></i></router-link>
-                <router-link to="/book"><i class="fa-solid fa-book"></i>
+                <div v-if="isShown" class="links-container">
+           <div class="logos-container">
+           <router-link @click="isShown=!isShown" to="/email"><img class="logo-btn"src="../img/Gmail-logo.png"></router-link>
+           <router-link @click="isShown=!isShown" to="/notes"><img class="logo-btn"src="../img/notes.png"></router-link>
+
+           </div>
+           <div class="logos-container">
+
+             <router-link @click="isShown=!isShown" to="/about"><img class="logo-btn"src="../img/about.png"></router-link>
+             <router-link @click="isShown=!isShown" to="/book"><img class="logo-btn"src="../img/books.png">
+                   
+           </div>
+
+                </div>
+                <i @click="isShown=!isShown" class="fa-solid fa-bars"></i>
+               
                 </router-link>
-                <router-link to="/about">About</router-link>
             </nav>
         </header>
     `,
+    data() {
+        return {
+            isShown: false
+        }
+    }
 }
