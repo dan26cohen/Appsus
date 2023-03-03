@@ -67,6 +67,7 @@ export default {
         starEmail(email) {
             EmailService.starEmail(email).then(newEmails => {
                 this.emails = newEmails
+                this.unReadCount--
             })
         },
         addEmail(email) {

@@ -14,11 +14,6 @@ export const EmailService = {
     deleteEmail,
     addEmail,
     starEmail
-    // save,
-    // getEmptyBook,
-    // addReview,
-    // addGoogleBook
-
 }
 
 const gEmail = [
@@ -210,11 +205,3 @@ function starEmail(email) {
         return emails
     })
 }
-// function deleteEmail(email) {
-//     let emails = utilService.loadFromStorage(EMAIL_KEY)
-//     let curEmail = emails.find(e => email.id === e.id)
-//     curEmail.readAt = Date.now()
-//     curEmail.status = 'trash'
-//     save(curEmail)
-//     return emails
-// }
