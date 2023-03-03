@@ -61,6 +61,7 @@ export default {
         deleteEmail(email) {
             EmailService.deleteEmail(email).then(newEmails => {
                 this.emails = newEmails
+                this.unReadCount--
             })
         },
         starEmail(email) {

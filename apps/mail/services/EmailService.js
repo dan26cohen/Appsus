@@ -176,6 +176,13 @@ function readEmail(email) {
 function deleteEmail(email) {
     return query().then(emails => {
         let curEmail = emails.find(e => email.id === e.id)
+        if (curEmail.status === 'trash'){
+            const idx = emails.findIndex(email=>email.id === curEmail.id)
+            console.log(idx);
+            remove(curEmail.id)
+            emails.splice(idx,1)
+            return emails
+        }
         curEmail.readAt = Date.now()
         curEmail.status = 'trash'
         save(curEmail)
