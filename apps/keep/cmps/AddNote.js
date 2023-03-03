@@ -21,17 +21,20 @@ export default {
                         <i class="fa-regular fa-image"></i>
                     </button>
                 </div>
-            </div>
-                    <div class="todos-container" v-if="type === 'NoteTodos'">
+                <!-- v-if="type === 'NoteTodos' -->
+            </div> 
+                    <div class="todos-container" >
                          <label>Todo Items:</label>
-                         <div v-for="(item, idx) in todoItems" :key="idx">
-                         <input  type="checkbox" v-model="item.doneAt">
-                         <input class="todo-input" type="text" v-model="item.txt" :class="{ done: item.doneAt }">
-                         <button @click="removeTodoItem(idx)">x</button>
+                         <div class="todo-list" v-for="(item, idx) in todoItems" :key="idx">
+                            <input class="check-box-td"  type="checkbox" v-model="item.doneAt">
+                            <input placeholder="Your Task Here..." class="todo-input" type="text" v-model="item.txt" :class="{ done: item.doneAt }">
+                            <button class="todo-remove-btn" @click="removeTodoItem(idx)">x</button>
                         </div>
-                        <button @click="addTodoItem">Add Todo Item</button>
+                        <div>
+                            <button class="add-td-btn" @click="addTodoItem">+</button>
+                        </div>
                     </div>
-            <button type="submit" @click="addNote" class="add-btn">Add Note</button>
+            <button type="submit" @click="addNote" class="add-note-btn">Save</button>
     </form>`,
 
     data() {
@@ -39,14 +42,13 @@ export default {
             title: '',
             txt: '',
             type: 'NoteTxt',
-            todoItems: [{ txt: 'Task', doneAt: null }],
+            todoItems: [{ txt: '', doneAt: null }, { txt: '', doneAt: null }],
             imgUrl: '',
         }
     },
 
     methods: {
         addNote() {
-            debugger
             const newNote = noteService.getEmptyNote()
             newNote.type = this.type
             newNote.info = {
@@ -65,7 +67,7 @@ export default {
             this.$emit('setNoteType', type)
         },
         addTodoItem() {
-            this.todoItems.push({ txt: 'Task', doneAt: false });
+            this.todoItems.push({ txt: '', doneAt: false });
         },
         removeTodoItem(idx) {
             this.todoItems.splice(idx, 1);

@@ -1,12 +1,13 @@
 .color-modal {
     position: absolute;
-    margin-right: 50px;
     background-color: white;
     padding: 10px;
     border-radius: 20px;
     box-sizing: border-box;
     box-shadow: 1px 1px 3px black;
 }
+
+
 
 
 .color-ul {
@@ -33,11 +34,23 @@
 .exit-btn {
     background-color: rgb(193, 193, 193);
     color: rgb(255, 255, 255);
-    font-size: ;
     padding: 5px 10px
 }
 
 .exit-btn:hover {
     box-shadow: 1px 1px 1px 0px red;
     color: red;
+}
+
+.add-note-btn {
+    float: right;
+    background-color: white;
+    border: 1px lightgray solid;
+    border-radius: 20px;
+}
+
+.add-note-btn:hover {
+    background-color: lightseagreen;
+    color: white;
+    transition: 0.3s;
 }

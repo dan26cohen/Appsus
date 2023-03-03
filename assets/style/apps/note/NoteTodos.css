@@ -5,3 +5,39 @@
 .todo-ul {
     padding: 0;
 }
+
+.todo-list {
+    border-top: 1px rgb(200, 200, 200) solid;
+}
+
+.todo-remove-btn {
+    border-radius: 50%;
+    border: none;
+    background-color: white;
+    color: rgb(185, 185, 185);
+    float: right;
+    font-size: 1em;
+}
+
+.todo-remove-btn:hover {
+    border: none;
+    color: white;
+    background-color: rgb(183, 183, 183);
+}
+
+.todo-input {
+    padding: 5px;
+    width: 90%;
+    box-sizing: border-box;
+}
+
+.add-td-btn {
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+
+.add-td-btn:hover {
+    background-color: rgb(156, 154, 154);
+    color: white;
+}
