@@ -4,7 +4,7 @@ export default {
     props: ['notes'],
     template: ` 
     <form class="add-note-form">
-            <input placeholder="Title..." v-model="title" type="text" class="add-title-input" >
+            <input placeholder="Title..." v-model="title" type="text" :class="{'hide':isEditorOn}" class="add-title-input" >
             <div class="add-note-shown">
                 <input placeholder="Take a note..." type="text" class="add-txt-input" v-model="txt" >
                 <div class="editor-container">
@@ -33,6 +33,10 @@ export default {
                             <button class="add-td-btn" @click="addTodoItem">+</button>
                         </div>
                     </div>
+                    <div class="note-img-container" v-if="type === 'NoteImg'">
+                        <input class="upload-img-input" type="file" @change="onImgUpload">
+                        <img :src="imgUrl">
+                    </div>
             <button type="submit" @click="addNote" class="add-note-btn">Save</button>
     </form>`,
 
@@ -43,6 +47,7 @@ export default {
             type: 'NoteTxt',
             todoItems: [{ txt: '', doneAt: null }, { txt: '', doneAt: null }],
             imgUrl: '',
+            isEditorOn: false,
         }
     },
 
@@ -76,15 +81,24 @@ export default {
         removeTodoItem(idx) {
             this.todoItems.splice(idx, 1);
         },
-    },
-    computed: {
+        onImgUpload(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => {
+                this.imgUrl = reader.result
+                console.log('this.imgUrl', this.imgUrl)
+            }
+        },
+        computed: {
 
-    },
-    created() {
+        },
+        created() {
 
-    },
-    components: {
+        },
+        components: {
 
-    },
-    emits: [],
+        },
+        emits: [],
+    }
 }
