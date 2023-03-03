@@ -16,15 +16,7 @@ export default {
         }
     },
     methods: {
-        // loadEmail() {
-        //     EmailService.get(this.emailId)
-        //         .then(email => {
-        //             email.isRead = true
-        //             this.email = email
-        //             EmailService.save(this.email)
-        //         }
-        //         )
-        // },
+
         deleteEmail() {
             console.log('hey');
             EmailService.get(this.email.id)
@@ -32,14 +24,12 @@ export default {
                     email.removedAt = Date.now()
                     email.status = 'trash'
                     console.log(email);
-                   
+
                 }
                 )
         }
     },
     computed: {
-        // emailId() {
-        //     return this.$route.params.emailId
-        // },
+
     }
 }
