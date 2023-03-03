@@ -3,7 +3,7 @@ export default {
         <header class="app-header">
             <nav >
                 <div class="logo">
-                <router-link to="/">  <h1>AppSus</h1></router-link>
+                <router-link to="/"><img class="logo-btn"src="../img/appssus.logo.png"></router-link>
                 </div>
                 <div v-if="isShown" class="links-container">
            <div class="logos-container">
