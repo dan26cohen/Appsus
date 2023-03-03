@@ -1,4 +1,6 @@
-import { EmailService } from '../services/EmailService.js'
+import { noteService } from '../../../apps/keep/services/note.service.js'
+import { utilService } from '../../../services/util.service'
+
 export default {
     props: [''],
     template: `
@@ -18,6 +20,7 @@ export default {
 
             <section class="compose-send">
                 <button className="send">send</button>
+                <button @click="sendNote" className="send">send to note</button>
                 <button className="delete"><i class="fa-regular fa-trash-can"></i></button>
             </section>
         </form>
@@ -40,6 +43,24 @@ export default {
             this.$emit('addEmail', this.email)
             this.$emit('close')
 
+           
+        },
+        sendNote(){
+            const note = {
+                type: 'NoteTxt',
+                isPinned:false,
+                info: {
+                    title: this.email.subject,
+                    txt: this.email.body,
+                },
+                style:{
+                    backgroundColor:'red'
+                },
+                createdAt: utilService.getCurrDate()
+                
+            }
+   
+            noteService.addNewNote(note)
         }
     }
 }
