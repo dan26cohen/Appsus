@@ -4,7 +4,7 @@ export default {
     template: `
         <form @submit.prevent="sendEmail" class="compose">
             <header class="compose-header">
-                <h3>New Message</h3>
+                <h3 style="padding:5px">New Message</h3>
                 <div className="compose-buttons">
                     <button class="close-compose" @click="close"><i class="fa-solid fa-xmark"></i></button>
                 </div>
