@@ -12,7 +12,8 @@ export const EmailService = {
     remove,
     readEmail,
     deleteEmail,
-    addEmail
+    addEmail,
+    starEmail
     // save,
     // getEmptyBook,
     // addReview,
@@ -194,7 +195,14 @@ function addEmail(email) {
 
 }
 
-
+function starEmail(email) {
+    return query().then(emails => {
+        let curEmail = emails.find(e => email.id === e.id)
+        curEmail.status = 'starred'
+        save(curEmail)
+        return emails
+    })
+}
 // function deleteEmail(email) {
 //     let emails = utilService.loadFromStorage(EMAIL_KEY)
 //     let curEmail = emails.find(e => email.id === e.id)

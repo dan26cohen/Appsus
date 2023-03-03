@@ -2,7 +2,7 @@ export default {
     props: ['email'],
     template: `
         <div class="email-preview" :class="email.isRead ? 'read' : 'unRead' ">
-            <input type="checkbox" />
+            <input @click="star" type="checkbox" />
             <i class="fa-regular fa-star"></i>
             <h1 @click="toggle" style="font-family:'Roboto';" :class="email.isRead ? '' : 'unRead' ">{{ email.from}}</h1>
             <h1  @click="toggle" style="font-family:'Roboto';" :class="email.isRead ? '' : 'unRead' ">{{ email.subject}}</h1>
@@ -30,6 +30,9 @@ export default {
         },
         toggle() {
             this.$emit('toggle', this.email)
+        },
+        star(){
+            this.$emit('star', this.email)
         }
     }
 }

@@ -13,6 +13,7 @@ export default {
                     :emails="filteredEmails" 
                     @readEmail="readEmail"
                     @deleteEmail="deleteEmail"
+                    @starEmail="starEmail"
 
             />
         </div>
@@ -28,7 +29,7 @@ export default {
             selectedEmail: null,
             filterBy: { status: 'inbox' },
             unReadCount: null,
-       
+
         }
     },
     computed: {
@@ -45,7 +46,7 @@ export default {
     },
     methods: {
         setFilterBy(filterBy) {
-            this.filterBy = {...this.filterBy , ...filterBy}
+            this.filterBy = { ...this.filterBy, ...filterBy }
         },
         folderFilter(filter) {
             this.filterBy.status = filter
@@ -62,14 +63,19 @@ export default {
                 this.emails = newEmails
             })
         },
+        starEmail(email) {
+            EmailService.starEmail(email).then(newEmails => {
+                this.emails = newEmails
+            })
+        },
         addEmail(email) {
             EmailService.addEmail(email).then(newEmail => {
                 this.emails.unshift(newEmail)
                 this.unReadCount++
-         
+
             })
         },
-     
+
 
     },
     created() {
