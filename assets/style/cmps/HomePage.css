@@ -12,6 +12,10 @@
     width: 250px;
 }
 
+.home-menu img {
+    width: 250px;
+}
+
 .home-menu {
     gap: 50px;
     display: flex;
