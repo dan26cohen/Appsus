@@ -67,8 +67,8 @@ function getEmptyNote() {
             backgroundColor: 'white',
         },
         info: {
-            title: '',
-            txt: '',
+            title: 'Title',
+            txt: 'Txt',
             todos: [{ txt: 'Driving license', doneAt: null }],
             url: '',
         }
@@ -78,7 +78,8 @@ function getEmptyNote() {
 
 function addNewNote(newNote) {
     return storageService.query(NOTES_KEY).then((notes => {
-        return save(newNote)
+        const noteCopy = JSON.parse(JSON.stringify(newNote));
+        return save(noteCopy)
     }))
 }
 

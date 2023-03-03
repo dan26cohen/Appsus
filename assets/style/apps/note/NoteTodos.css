@@ -7,6 +7,8 @@
 }
 
 .todo-list {
+    display: flex;
+    align-items: center;
     border-top: 1px rgb(200, 200, 200) solid;
 }
 
@@ -35,6 +37,8 @@
     background-color: white;
     border: 1px solid lightgray;
     border-radius: 10px;
+    font-size: 1em;
+    color: gray;
 }
 
 .add-td-btn:hover {
