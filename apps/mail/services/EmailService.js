@@ -171,11 +171,11 @@ function readEmail(email) {
 function deleteEmail(email) {
     return query().then(emails => {
         let curEmail = emails.find(e => email.id === e.id)
-        if (curEmail.status === 'trash'){
-            const idx = emails.findIndex(email=>email.id === curEmail.id)
+        if (curEmail.status === 'trash') {
+            const idx = emails.findIndex(email => email.id === curEmail.id)
             console.log(idx);
             remove(curEmail.id)
-            emails.splice(idx,1)
+            emails.splice(idx, 1)
             return emails
         }
         curEmail.readAt = Date.now()
@@ -187,6 +187,7 @@ function deleteEmail(email) {
 
 function addEmail(email) {
     email.status = 'inbox'
+    email.to = "user@appsus.com"
     email.sentAt = Date.now()
     email.from = 'ממני'
     email.isRead = false
