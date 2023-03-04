@@ -106,7 +106,7 @@ export default {
             const regex = new RegExp(this.filterBy.title, 'i')
             if (this.filterBy.type === 'All') {
                 console.log('example')
-                return this.notes
+                return this.notes.filter(note => regex.test(note.info.title))
             }
             else return this.notes.filter(note => regex.test(note.info.title) && note.type === this.filterBy.type)
         }
