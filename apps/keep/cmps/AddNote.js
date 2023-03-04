@@ -75,6 +75,8 @@ export default {
         },
         setNoteType(type) {
             this.type = type
+            if (type !== 'NoteTodos') this.todoItems = []
+            else this.todoItems = [{ txt: '', doneAt: null }, { txt: '', doneAt: null }]
             console.log('type', this.type)
             this.$emit('setNoteType', type)
         },
@@ -90,7 +92,6 @@ export default {
             reader.readAsDataURL(file);
             reader.onload = () => {
                 this.imgUrl = reader.result
-                console.log('this.imgUrl', this.imgUrl)
             }
         },
         setEditOn() {

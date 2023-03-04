@@ -75,6 +75,6 @@
 }
 
 .upload-img-input {
-    border: 1px lightgray solid;
     background-color: white;
+    font-size: 1.3em;
 }

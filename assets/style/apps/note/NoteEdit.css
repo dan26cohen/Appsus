@@ -45,3 +45,29 @@
     width: 300px;
     height: 300px;
 }
+
+.edit-title-input {
+    width: fit-content;
+    font-size: 1.5em;
+    border: none;
+}
+
+.edit-txt-input {
+    border: none;
+    font-size: 1.2em;
+}
+
+.edit-modal-img {
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+.upload-img-editor {
+    border: none;
+    background-color: white;
+}
+
+.edit-modal-btns img {
+    width: 50%;
+    margin: auto;
+}

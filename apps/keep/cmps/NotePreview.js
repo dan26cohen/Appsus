@@ -24,8 +24,8 @@ export default {
         <NoteColor :note="note" @paint="paint" v-if="isPainterOn" @close="closeModal"/>
 
         <div class="edit-modal" :class="{'open':isEditModalOpen}">
-            <input placeholder="Title..." type="text" class="add-title-input" v-model="note.info.title">
-            <input placeholder="Take a note..." type="text" class="add-txt-input" v-model="note.info.txt">
+            <input placeholder="Title..." type="text" class="edit-title-input" v-model="note.info.title">
+            <input placeholder="Take a note..." type="text" class="edit-txt-input" v-model="note.info.txt">
             <ul class="todo-ul">
                 <li v-for="(todo, index) in note.info.todos" :key="index">
                     <input type="checkbox" v-model="todo.doneAt" />
@@ -36,6 +36,9 @@ export default {
             <div class="edit-modal-btns">
                 <button @click="close">close</button>
                 <button @click="save(note.id)">save</button>
+                <button @click="deletePhoto(note)" :class="{'hide': !note.info.url }">Remove Photo</button>
+                <button @click="setUpload" :class="{'hide': !note.info.url }">Change Photo</button>
+                <input class="upload-img-input" type="file" @change="onImgUpload($event,note)" :class="{'hide': !isUpload }">
             </div>
         </div>
     </article>
@@ -45,8 +48,10 @@ export default {
             showBtns: false,
             selectedBgc: '',
             isEditMode: false,
+            isUpload: false,
             isPainterOn: false,
             isEditModalOpen: false,
+            imgUrl: '',
         }
     },
     methods: {
@@ -86,7 +91,27 @@ export default {
             }
             console.log('email', email)
             EmailService.addEmail(email)
+        },
+        deletePhoto(note) {
+            note.info.url = ''
+            noteService.save(note)
+        },
+        setUpload() {
+            this.isUpload = true
+        },
+        onImgUpload(event, note) {
+            this.isUpload = true
+            const file = event.target.files[0];
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => {
+                this.imgUrl = reader.result
+                note.info.url = reader.result
+            }
+            noteService.save(note)
+            this.isUpload = false
         }
+
     },
     computed: {
 
