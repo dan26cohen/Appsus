@@ -7,7 +7,7 @@ export default {
             <input placeholder="Title..." v-model="title" type="text" 
             class="add-title-input" :class="{'open':isEditorOn}"  >
             <div class="add-note-shown">
-                <input placeholder="Take a note..." type="text" class="add-txt-input" v-model="txt" >
+                <input placeholder="Take a note..." type="textarea" class="add-txt-input" v-model="txt" >
                 <div class="editor-container">
                 </div>
                 <div class="note-type-btns">
