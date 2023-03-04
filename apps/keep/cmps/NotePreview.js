@@ -9,11 +9,12 @@ export default {
     props: ['note'],
     template: `
      <article class="note-preview" @mouseover="showBtns=true" @mouseout="showBtns=false" >
-         <p @click="unpin(note)" style="float:right;" v-if="note.info.isPinned">📌</p>
+         <i @click="unpin(note)" style="float:right;" v-if="note.info.isPinned" class="fa-solid fa-thumbtack pin-icon"></i>
         <div class="note-container" >
             <component :is="note.type" :info="note.info" />
             <div class="note-btns" :class="{'show': showBtns}">
                 <i title="Delete" class="fa-regular fa-trash-can close-note-btn" @click="remove(note.id)"></i>
+                <i title="Pin Note" @click="pin(note)" v-if="!note.info.isPinned" class="fa-solid fa-thumbtack pin-icon"></i>
                 <i title="Duplicate Note" @click="duplicate(note.id)"  class="fa-regular fa-clone"></i>
                 <i title="Paint Note" class="fa-solid fa-paintbrush" @click="togglePainter"></i>
                 <i title="Edit Note" @click="edit(note)" class="fa-regular fa-pen-to-square"></i>

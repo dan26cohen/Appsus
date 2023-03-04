@@ -34,7 +34,8 @@ export default {
                 })
         },
         updateNote(noteId) {
-            const idx = this.notes.findIndex(note => note.id === noteId)
+            let idx = this.notes.findIndex(note => note.id === noteId)
+            if (idx === -1) idx = this.pinnedNotes.findIndex(pinnedNote => pinnedNote.id === noteId)
             noteService.save(this.notes[idx])
                 .then(() => {
                     console.log('note saved')

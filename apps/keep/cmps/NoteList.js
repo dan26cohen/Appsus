@@ -12,7 +12,6 @@ export default {
                     <NotePreview  :note="note"  @remove=remove(note.id)  @paint=paint @edit='edit' @unpin='unpin'
                     @save="update(note.id)"  @duplicate="duplicateNote(note.id)"/>
                 </li>
-                </div>
             </ul>
         </div>
         <h2>Your Keeps:</h2>

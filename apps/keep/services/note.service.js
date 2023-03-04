@@ -121,7 +121,7 @@ function _getDemoData() {
             id: 'n102',
             type: 'NoteImg',
             info: {
-                isPinned: true,
+                isPinned: false,
                 title: 'Note 2',
                 url: 'assets/img/1.png',
                 txt: 'bla bla bla bla',
@@ -137,7 +137,7 @@ function _getDemoData() {
                 backgroundColor: 'gray'
             },
             info: {
-                isPinned: true,
+                isPinned: false,
                 title: 'Note 3',
                 txt: 'bla bla bla bla',
                 todos: [
@@ -155,7 +155,7 @@ function _getDemoData() {
                 backgroundColor: 'white'
             },
             info: {
-                isPinned: true,
+                isPinned: false,
                 title: 'Note 7',
                 txt: utilService.makeLorem(30),
                 todos: [
@@ -267,14 +267,27 @@ function _getDemoData() {
                 txt: utilService.makeLorem(10),
                 todos: [
                     { txt: 'Driving license', doneAt: null },
-                    { txt: utilService.makeLorem(3), doneAt: null },
-                    { txt: utilService.makeLorem(3), doneAt: null },
-                    { txt: utilService.makeLorem(3), doneAt: null },
-                    { txt: utilService.makeLorem(3), doneAt: null },
+                    { txt: 'Finish Homework', doneAt: null },
+                    { txt: 'Buy Tickets', doneAt: null },
+                    { txt: 'Eat', doneAt: null },
+                    { txt: utilService.makeLorem(2), doneAt: null },
                     { txt: utilService.makeLorem(3), doneAt: null },
                     { txt: utilService.makeLorem(3), doneAt: null },
                 ],
                 isPinned: false,
+            },
+        },
+        {
+            id: 'n101151',
+            type: 'NoteImg',
+            style: {
+                backgroundColor: 'lightpurple'
+            },
+            info: {
+                title: 'VENICE',
+                txt: utilService.makeLorem(5),
+                isPinned: true,
+                url: 'assets/img/2.png',
             },
         },
 
