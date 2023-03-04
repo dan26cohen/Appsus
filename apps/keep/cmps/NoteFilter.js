@@ -7,6 +7,7 @@ export default {
                  @input="filter" 
                  placeholder="Search Keeps's title..." >
                 <select class="type-filter" @change="setType($event.target.value)">
+                   <option value="All">All</option>
                    <option value="NoteTxt">Text</option>
                    <option value="NoteImg">Images</option>
                    <option value="NoteTodos">Todo Lists</option>
@@ -16,7 +17,7 @@ export default {
 
     data() {
         return {
-            filterBy: { title: '', type: '' }
+            filterBy: { title: '', type: 'All' }
         }
     },
     methods: {
@@ -33,7 +34,7 @@ export default {
 
     },
     created() {
-
+        this.filterBy.type = 'All'
     },
     components: {
 

@@ -105,8 +105,12 @@ export default {
     computed: {
         filteredNotes() {
             const regex = new RegExp(this.filterBy.title, 'i')
-            console.log(']]]', this.notes.filter(note => regex.test(note.info.title) || note.type === this.filterBy.type))
-            return this.notes.filter(note => regex.test(note.info.title) && note.type === this.filterBy.type)
+            if (this.filterBy.type === 'All') {
+                debugger
+                console.log('example')
+                return this.notes.filter(note => regex.test(note.info.title) || note.type === this.filterBy.type)
+            }
+            else return this.notes.filter(note => regex.test(note.info.title) && note.type === this.filterBy.type)
         }
     },
 

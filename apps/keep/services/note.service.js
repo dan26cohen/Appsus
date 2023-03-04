@@ -22,7 +22,6 @@ function query(filterBy = {}) {
             const regex = new RegExp(filterBy.title, 'i')
             notes = notes.filter((note) => regex.test(note.info.title))
         }
-        debugger
         if (filterBy.type) {
             notes = notes.filter((note) => note.type === filterBy.type)
         }
