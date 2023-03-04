@@ -19,9 +19,12 @@ _createNotes()
 function query(filterBy = {}) {
     return storageService.query(NOTES_KEY).then((notes) => {
         if (filterBy.title) {
-            console.log('filterBy.title', filterBy.title)
             const regex = new RegExp(filterBy.title, 'i')
             notes = notes.filter((note) => regex.test(note.info.title))
+        }
+        debugger
+        if (filterBy.type) {
+            notes = notes.filter((note) => note.type === filterBy.type)
         }
         return notes
     })

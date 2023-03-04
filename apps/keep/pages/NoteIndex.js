@@ -94,8 +94,10 @@ export default {
             noteService.save(note)
         },
         setFilterBy(filterBy) {
+            debugger
             console.log('filterBy', filterBy)
             this.filterBy = filterBy
+            console.log('this.filterBy', this.filterBy)
         },
 
     },
@@ -103,7 +105,8 @@ export default {
     computed: {
         filteredNotes() {
             const regex = new RegExp(this.filterBy.title, 'i')
-            return this.notes.filter(note => regex.test(note.info.title))
+            console.log(']]]', this.notes.filter(note => regex.test(note.info.title) || note.type === this.filterBy.type))
+            return this.notes.filter(note => regex.test(note.info.title) && note.type === this.filterBy.type)
         }
     },
 
