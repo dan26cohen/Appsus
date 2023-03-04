@@ -113,8 +113,10 @@ export default {
             this.isUpload = false
         },
         unpin(note) {
-            console.log('THIS NOTE', note)
             this.$emit('unpin', note)
+        },
+        pin(note) {
+            this.$emit('pin', note)
         }
 
     },

@@ -10,7 +10,7 @@ export default {
     <section class="notes-index">
         <AddNote :notes="notes" @setNoteType=setNoteType @addNote=addNote />
         <NoteList :notes="notes" :pinnedNotes="pinnedNotes" @update="updateNote" @duplicate="duplicateNote"
-         @unpin="unpinNote"
+         @pin="pinNote" @unpin="unpinNote"
          @remove="removeNote" @paint="paint"/>
     </section>`,
 
@@ -72,7 +72,15 @@ export default {
             note.info.isPinned = false
             const idx = this.pinnedNotes.findIndex(pinnedNote => note.id === pinnedNote.id)
             this.notes.push(this.pinnedNotes.splice(idx, 1)[0])
-            console.log('this.notes update:', this.notes)
+            noteService.save(note)
+        },
+        pinNote(note) {
+            debugger
+            console.log('IS REALLY NOTE', note)
+            note.info.isPinned = true
+            const idx = this.notes.findIndex(regularNote => note.id === regularNote.id)
+            this.pinnedNotes.push(this.notes.splice(idx, 1)[0])
+            console.log('this.pinnedNotes', this.pinnedNotes)
             noteService.save(note)
         },
         // pinNote(pinNote) {

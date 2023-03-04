@@ -18,7 +18,7 @@ export default {
         <div class="unpinned-notes">
             <ul class="note-list">
                 <li v-for="note in notes" :key="note.id" class="note-li" :style="{'background-color': note.style?.backgroundColor || white}" >
-                    <NotePreview  :note="note" @remove=remove(note.id)  @paint=paint @edit='edit' @unpin='unpin'
+                    <NotePreview  :note="note" @remove="remove(note.id)"  @paint="paint" @edit="edit" @pin="pin" @unpin='unpin'
                     @save="update(note.id)"  @duplicate="duplicateNote(note.id)"/>
                 </li>
             </ul>
@@ -48,6 +48,9 @@ export default {
         },
         unpin(note) {
             this.$emit('unpin', note)
+        },
+        pin(note) {
+            this.$emit('pin', note)
         }
 
     },
