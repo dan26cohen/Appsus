@@ -14,7 +14,7 @@ export default {
                     <h3>Keep Your Own Notes!</h3></h3>
                 </div>
                 <div>
-                    <img src="../../../assets/img/books.logo.png">
+                    <img src="assets/img/books.logo.png">
                     <h3>Our Books</h3>
                 </div>
             </div>
