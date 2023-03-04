@@ -22,8 +22,8 @@ export default {
                     </button>
                 </div>
             </div> 
-            <div class="todos-container" v-if="type === 'NoteTodos'">
-                <label>Todo Items:</label>
+                    <div class="todos-container" v-if="type === 'NoteTodos'">
+                        <label>Todo Items:</label>
                     <div class="todo-list" v-for="(item, idx) in todoItems" :key="idx">
                         <input class="check-box-td"  type="checkbox" v-model="item.doneAt">
                         <input placeholder="Your Task Here..." class="todo-input" type="text" v-model="item.txt" :class="{ done: item.doneAt }">
@@ -32,15 +32,14 @@ export default {
                     <div>
                         <button class="add-td-btn" @click="addTodoItem">+</button>
                     </div>
-</div>
+                    </div>
                     <div class="note-img-container" v-if="type === 'NoteImg'">
                         <input class="upload-img-input" type="file" @change="onImgUpload">
                         <img :src="imgUrl">
                     </div>
                     <div>
-                        <button type="submit" @click="addNote" class="add-note-btn" :class="{'open':isEditorOn}">Save</button>
+                        <button type="submit" @click="addNote" class="add-note-btn">Save</button>
                     </div>
-            </div>
     </form>`,
 
     data() {

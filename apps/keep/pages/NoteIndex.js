@@ -70,7 +70,7 @@ export default {
             console.log('IS REALLY NOTE', note)
             note.info.isPinned = false
             const idx = this.pinnedNotes.findIndex(pinnedNote => note.id === pinnedNote.id)
-            this.notes.push(this.pinnedNotes.splice(idx, 1))
+            this.notes.push(this.pinnedNotes.splice(idx, 1)[0])
             console.log('this.notes update:', this.notes)
             noteService.save(note)
         },
