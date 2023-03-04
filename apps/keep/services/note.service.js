@@ -23,6 +23,7 @@ function query(filterBy = {}) {
             notes = notes.filter((note) => regex.test(note.info.title))
         }
         if (filterBy.type) {
+            if (filterBy.type === 'All') return notes
             notes = notes.filter((note) => note.type === filterBy.type)
         }
         return notes
