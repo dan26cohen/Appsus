@@ -4,12 +4,12 @@ export default {
             <h1>Home sweet home!</h1>
             <div class="home-menu">
                 <div>
-                <router-link to="/email"> <img src="../../../assets/img/gmail.logo.png"></router-link>
+                <router-link to="/email"> <img src="assets/img/gmail.logo.png"></router-link>
                    
                     <h3>Get Your Own Email!</h3>
                 </div>
                 <div>
-                <router-link to="/notes"><img src="../../../assets/img/google.keep.logo.png"></router-link>
+                <router-link to="/notes"><img src="assets/img/google.keep.logo.png"></router-link>
                  
                     <h3>Keep Your Own Notes!</h3></h3>
                 </div>
