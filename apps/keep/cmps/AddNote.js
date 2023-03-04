@@ -37,7 +37,7 @@ export default {
                         <input class="upload-img-input" type="file" @change="onImgUpload">
                         <img :src="imgUrl">
                     </div>
-                    <div>
+                    <div class="add-save-btn">
                         <button type="submit" @click="addNote" class="add-note-btn">Save</button>
                     </div>
     </form>`,

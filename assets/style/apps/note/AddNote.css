@@ -55,8 +55,13 @@
     display: block;
 }
 
+.add-save-btn {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
 .add-note-btn {
-    float: right;
     padding: 5px;
     font-size: 1.2em;
     background-color: white;
