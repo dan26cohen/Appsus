@@ -6,7 +6,7 @@ export default {
     template: `
      <section class="note-list-container" :class="{'blur':isEditMode}">
          <div class="pinned-notes">
-            <h2>Pinned Keeps:</h2>
+            <h2 :class="{'hide':pinnedNotes.length === 0}">Pinned Keeps:</h2>
             <ul class="note-list">
                 <li v-for="note in pinnedNotes" :key="note.id" class="note-li" :style="{'background-color': note.style?.backgroundColor || white}">
                     <NotePreview  :note="note"  @remove=remove(note.id)  @paint=paint @edit='edit' @unpin='unpin'

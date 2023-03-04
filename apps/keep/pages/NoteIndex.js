@@ -1,16 +1,18 @@
 'use strict'
 
 import { noteService } from '../services/note.service.js'
-import NoteFilter from '../cmps/NoteFilter.js'
 import NoteList from '../cmps/NoteList.js'
 import AddNote from '../cmps/AddNote.js'
+import NoteFilter from '../cmps/NoteFilter.js'
 
 export default {
     template: `
     <section class="notes-index">
+        <NoteFilter @filter="setFilterBy"/>
         <AddNote :notes="notes" @setNoteType=setNoteType @addNote=addNote />
-        <NoteList :notes="notes" :pinnedNotes="pinnedNotes" @update="updateNote" @duplicate="duplicateNote"
-         @pin="pinNote" @unpin="unpinNote"
+        <NoteList :notes="filteredNotes" :pinnedNotes="pinnedNotes"
+         @update="updateNote" @duplicate="duplicateNote"
+         @pin="pinNote" @unpin="unpinNote" 
          @remove="removeNote" @paint="paint"/>
     </section>`,
 
@@ -19,6 +21,7 @@ export default {
             noteType: 'NoteTxt',
             notes: [],
             pinnedNotes: [],
+            filterBy: {},
         }
     },
     methods: {
@@ -26,7 +29,11 @@ export default {
             noteService.remove(noteId)
                 .then(() => {
                     const idx = this.notes.findIndex(note => note.id === noteId)
-                    this.notes.splice(idx, 1)
+                    if (idx !== -1) this.notes.splice(idx, 1)
+                    else {
+                        const idx = this.pinnedNotes.findIndex(note => note.id === noteId)
+                        this.pinnedNotes.splice(idx, 1)
+                    }
                     console.log('note removed')
                 })
                 .catch(err => {
@@ -35,21 +42,25 @@ export default {
         },
         updateNote(noteId) {
             let idx = this.notes.findIndex(note => note.id === noteId)
-            if (idx === -1) idx = this.pinnedNotes.findIndex(pinnedNote => pinnedNote.id === noteId)
-            noteService.save(this.notes[idx])
-                .then(() => {
-                    console.log('note saved')
-                })
-                .catch(err => {
-                    console.log('note not saved')
-                })
+            if (idx !== -1) noteService.save(this.notes[idx])
+            else {
+                idx = this.pinnedNotes.findIndex(pinnedNote => pinnedNote.id === noteId)
+                noteService.save(this.pinnedNotes[idx])
+            }
         },
         duplicateNote(noteId) {
-            const idx = this.notes.findIndex(note => note.id === noteId)
-            const newNote = JSON.parse(JSON.stringify(this.notes[idx]));
+            let idx = this.notes.findIndex(note => note.id === noteId)
+            let newNote
+            if (idx !== -1) {
+                newNote = JSON.parse(JSON.stringify(this.notes[idx]));
+                this.notes.push(newNote)
+            } else {
+                idx = this.pinnedNotes.findIndex(note => note.id === noteId)
+                newNote = JSON.parse(JSON.stringify(this.pinnedNotes[idx]));
+                this.pinnedNotes.push(newNote)
+
+            }
             newNote.id = ''
-            console.log('newNote', newNote)
-            this.notes.push(newNote)
             noteService.save(newNote)
         },
         paint() {
@@ -75,7 +86,6 @@ export default {
             noteService.save(note)
         },
         pinNote(note) {
-            debugger
             console.log('IS REALLY NOTE', note)
             note.info.isPinned = true
             const idx = this.notes.findIndex(regularNote => note.id === regularNote.id)
@@ -83,17 +93,18 @@ export default {
             console.log('this.pinnedNotes', this.pinnedNotes)
             noteService.save(note)
         },
-        // pinNote(pinNote) {
-        //     pinNote.info.isPinned = false
-        //     noteService.save(pinNote)
-        //         .then(() => {
-        //             const idx = this.notes.findIndex(note => note.id === pinNote.id)
-        //             this.pinnedNotes.unshift(this.notes.splice(idx, 1))
-        //         })
-        // }
+        setFilterBy(filterBy) {
+            console.log('filterBy', filterBy)
+            this.filterBy = filterBy
+        },
+
     },
 
     computed: {
+        filteredNotes() {
+            const regex = new RegExp(this.filterBy.title, 'i')
+            return this.notes.filter(note => regex.test(note.info.title))
+        }
     },
 
     created() {

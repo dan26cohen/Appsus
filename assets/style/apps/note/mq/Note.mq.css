@@ -1,8 +1,19 @@
 @media (max-width: 768px) {
 
+    .home-menu {
+        flex-direction: column;
+    }
+
+    .app-footer {
+        margin-top: 500px;
+    }
 
     .note-list-container {
         padding: 10px;
+    }
+
+    .upload-img-input {
+        width: 70%;
     }
 
     .note-li {

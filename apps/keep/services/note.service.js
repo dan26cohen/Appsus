@@ -18,13 +18,11 @@ _createNotes()
 
 function query(filterBy = {}) {
     return storageService.query(NOTES_KEY).then((notes) => {
-        // if (filterBy.txt) {
-        //     const regex = new RegExp(filterBy.txt, 'i')
-        //     notes = notes.filter((notes) => regex.test(notes.title))
-        // }
-        // if (filterBy.maxPrice) {
-        //     notes = notes.filter((notes) => notes.listPrice.amount <= filterBy.maxPrice)
-        // }
+        if (filterBy.title) {
+            console.log('filterBy.title', filterBy.title)
+            const regex = new RegExp(filterBy.title, 'i')
+            notes = notes.filter((note) => regex.test(note.info.title))
+        }
         return notes
     })
 }
@@ -141,8 +139,8 @@ function _getDemoData() {
                 title: 'Note 3',
                 txt: 'bla bla bla bla',
                 todos: [
-                    { txt: 'Finish Sprint 1', doneAt: 187111111 },
-                    { txt: 'Finish Sprint 2', doneAt: 187111111 },
+                    { txt: 'Finish Sprint 1', doneAt: null },
+                    { txt: 'Finish Sprint 2', doneAt: null },
                     { txt: 'Finish Sprint 3', doneAt: null },
                     { txt: 'Finish Sprint 4', doneAt: null },
                 ]
