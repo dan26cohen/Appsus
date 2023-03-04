@@ -47,12 +47,14 @@
 }
 
 .edit-title-input {
-    width: fit-content;
+    width: 100%;
+    outline: none;
     font-size: 1.5em;
     border: none;
 }
 
 .edit-txt-input {
+    outline: none;
     border: none;
     font-size: 1.2em;
 }

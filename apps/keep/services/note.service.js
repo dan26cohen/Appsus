@@ -123,7 +123,7 @@ function _getDemoData() {
             info: {
                 isPinned: true,
                 title: 'Note 2',
-                url: '../../../img/1.png',
+                url: 'assets/img/1.png',
                 txt: 'bla bla bla bla',
             },
             style: {

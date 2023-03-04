@@ -5,18 +5,19 @@ export default {
     props: ['notes', 'pinnedNotes'],
     template: `
      <section class="note-list-container" :class="{'blur':isEditMode}">
-        <div class="pinned-notes">
+         <div class="pinned-notes">
+            <h2>Pinned Keeps:</h2>
             <ul class="note-list">
-                <h1>Pinned Keeps:</h1>
                 <li v-for="note in pinnedNotes" :key="note.id" class="note-li" :style="{'background-color': note.style?.backgroundColor || white}">
                     <NotePreview  :note="note"  @remove=remove(note.id)  @paint=paint @edit='edit' @unpin='unpin'
                     @save="update(note.id)"  @duplicate="duplicateNote(note.id)"/>
                 </li>
+                </div>
             </ul>
         </div>
+        <h2>Your Keeps:</h2>
         <div class="unpinned-notes">
             <ul class="note-list">
-                <h1>Your Keeps:</h1>
                 <li v-for="note in notes" :key="note.id" class="note-li" :style="{'background-color': note.style?.backgroundColor || white}" >
                     <NotePreview  :note="note" @remove=remove(note.id)  @paint=paint @edit='edit' @unpin='unpin'
                     @save="update(note.id)"  @duplicate="duplicateNote(note.id)"/>
