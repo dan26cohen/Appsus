@@ -8,7 +8,9 @@ export default {
     props: ['info'],
     template: `
     <section class="notes-txt-container">
+        <div>
             <h2> {{info.title}} </h2>
+        </div>
             <p> {{info.txt}} </p>
     </section>`,
 

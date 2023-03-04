@@ -61,11 +61,11 @@ function getEmptyNote() {
     {
         createdAt: utilService.getCurrDate(),
         type: 'NoteTxt',
-        isPinned: true,
         style: {
             backgroundColor: 'white',
         },
         info: {
+            isPinned: true,
             title: 'Title',
             txt: 'Txt',
             todos: [{ txt: 'Driving license', doneAt: null }],
@@ -108,11 +108,11 @@ function _getDemoData() {
             id: 'n101',
             createdAt: 1112222,
             type: 'NoteTxt',
-            isPinned: true,
             style: {
                 backgroundColor: 'yellow'
             },
             info: {
+                isPinned: true,
                 title: 'Note 1',
                 txt: 'Fullstack Me Baby!'
             }
@@ -120,8 +120,8 @@ function _getDemoData() {
         {
             id: 'n102',
             type: 'NoteImg',
-            isPinned: false,
             info: {
+                isPinned: true,
                 title: 'Note 2',
                 url: '../../../img/1.png',
                 txt: 'bla bla bla bla',
@@ -133,11 +133,11 @@ function _getDemoData() {
         {
             id: 'n103',
             type: 'NoteTodos',
-            isPinned: false,
             style: {
                 backgroundColor: 'gray'
             },
             info: {
+                isPinned: true,
                 title: 'Note 3',
                 txt: 'bla bla bla bla',
                 todos: [
@@ -151,11 +151,11 @@ function _getDemoData() {
         {
             id: 'n104',
             type: 'NoteTodos',
-            isPinned: false,
             style: {
                 backgroundColor: 'white'
             },
             info: {
+                isPinned: true,
                 title: 'Note 7',
                 txt: utilService.makeLorem(30),
                 todos: [
@@ -172,19 +172,18 @@ function _getDemoData() {
         {
             id: 'n105',
             type: 'NoteTxt',
-            isPinned: false,
             style: {
                 backgroundColor: 'lightgreen'
             },
             info: {
                 title: 'Note 5',
                 txt: utilService.makeLorem(50),
+                isPinned: true,
             },
         },
         {
             id: 'n106',
             type: 'NoteTodos',
-            isPinned: false,
             style: {
                 backgroundColor: 'lightseagreen'
             },
@@ -193,30 +192,30 @@ function _getDemoData() {
                 todos: [
                     { txt: 'Driving license', doneAt: null },
                     { txt: utilService.makeLorem(3), doneAt: null },
+                    { txt: utilService.makeLorem(5), doneAt: null },
+                    { txt: utilService.makeLorem(2), doneAt: null },
+                    { txt: utilService.makeLorem(6), doneAt: null },
                     { txt: utilService.makeLorem(3), doneAt: null },
-                    { txt: utilService.makeLorem(3), doneAt: null },
-                    { txt: utilService.makeLorem(3), doneAt: null },
-                    { txt: utilService.makeLorem(3), doneAt: null },
-                    { txt: utilService.makeLorem(3), doneAt: null },
-                ]
+                    { txt: utilService.makeLorem(2), doneAt: null },
+                ],
+                isPinned: false,
             },
         },
         {
             id: 'n1011',
             type: 'NoteTxt',
-            isPinned: false,
             style: {
                 backgroundColor: 'white'
             },
             info: {
                 title: 'Untitled',
                 txt: utilService.makeLorem(30),
+                isPinned: false,
             },
         },
         {
             id: 'n1052',
             type: 'NoteTxt',
-            isPinned: false,
             style: {
                 backgroundColor: 'lightseagreen'
             },
@@ -228,7 +227,6 @@ function _getDemoData() {
         {
             id: 'n203495',
             type: 'NoteTxt',
-            isPinned: false,
             style: {
                 backgroundColor: 'lightcyan'
             },
@@ -240,7 +238,6 @@ function _getDemoData() {
         {
             id: 'n10422',
             type: 'NoteTodos',
-            isPinned: false,
             style: {
                 backgroundColor: 'lightcoral'
             },
@@ -255,13 +252,13 @@ function _getDemoData() {
                     { txt: utilService.makeLorem(3), doneAt: null },
                     { txt: utilService.makeLorem(3), doneAt: null },
                     { txt: utilService.makeLorem(3), doneAt: null },
-                ]
+                ],
+                isPinned: true,
             },
         },
         {
             id: 'n10111',
             type: 'NoteTodos',
-            isPinned: false,
             style: {
                 backgroundColor: 'lightpurple'
             },
@@ -276,7 +273,8 @@ function _getDemoData() {
                     { txt: utilService.makeLorem(3), doneAt: null },
                     { txt: utilService.makeLorem(3), doneAt: null },
                     { txt: utilService.makeLorem(3), doneAt: null },
-                ]
+                ],
+                isPinned: false,
             },
         },
 
@@ -285,14 +283,3 @@ function _getDemoData() {
     return notes;
 }
 
-/*
-function addEmail(email) {
-email.status = 'inbox'
-email.sentAt = Date.now()
-email.from = 'ממני'
-    email.isRead = false
-    return storageService.post(EMAIL_KEY, email)
-        .then(email => {
-            return email
-        })
-} */ 

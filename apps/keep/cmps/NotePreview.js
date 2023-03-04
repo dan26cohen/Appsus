@@ -9,14 +9,14 @@ export default {
     props: ['note'],
     template: `
      <article class="note-preview" @mouseover="showBtns=true" @mouseout="showBtns=false" >
+         <p @click="unpin(note)" style="float:right;" v-if="note.info.isPinned">📌</p>
         <div class="note-container" >
-            <component :is="note.type" :info="note.info" @changeInfo="updateNote" />
-            
+            <component :is="note.type" :info="note.info" />
             <div class="note-btns" :class="{'show': showBtns}">
-                <i title="Delete" class="fa-regular fa-trash-can" @click="remove(note.id)" class="close-note-btn"></i>
+                <i title="Delete" class="fa-regular fa-trash-can close-note-btn" @click="remove(note.id)"></i>
                 <i title="Duplicate Note" @click="duplicate(note.id)"  class="fa-regular fa-clone"></i>
                 <i title="Paint Note" class="fa-solid fa-paintbrush" @click="togglePainter"></i>
-                <i title="Edit Note"@click="edit(note)" class="fa-regular fa-pen-to-square"></i>
+                <i title="Edit Note" @click="edit(note)" class="fa-regular fa-pen-to-square"></i>
                 <i title="Send As Email" @click="sendAsEmail(note)" class="fa-solid fa-at"></i>
             </div>
         </div>
@@ -110,6 +110,10 @@ export default {
             }
             noteService.save(note)
             this.isUpload = false
+        },
+        unpin(note) {
+            console.log('THIS NOTE', note)
+            this.$emit('unpin', note)
         }
 
     },

@@ -32,7 +32,7 @@ export default {
                     <div>
                         <button class="add-td-btn" @click="addTodoItem">+</button>
                     </div>
-                    </div>
+</div>
                     <div class="note-img-container" v-if="type === 'NoteImg'">
                         <input class="upload-img-input" type="file" @change="onImgUpload">
                         <img :src="imgUrl">
